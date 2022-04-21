@@ -2,8 +2,8 @@
 
 La consegna del progetto prevede la costruzione di una base di dati, contenente i seguenti elementi:
 
-- **Analisi dei requisiti
-- **Progettazione
+- **Analisi dei requisiti**
+- **Progettazione**
   - progettazione concettuale
   - progettazione logica
 - **Realizzazione** (PostgreSQL and software in C)
