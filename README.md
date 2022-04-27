@@ -70,8 +70,7 @@ Inoltre per essere accettabile un progetto deve possedere i seguenti requisiti m
 - Un esempio di relazione per ogni tipo di cardinalità (1:N, 1:1, N:M)
 
 Domande:
-- Cosa si intende che deve essere presente almeno un indice significativo?
+
 - Come posso inserire all'interno del database la cronologia del carrello di ogni utente?
-- Diagramma ER: 
+- Diagramma ER:
   - Ha senso mettere cardinalità minima a 0 nella relazione Sede->Fornitore
-  - La tripla (Carrello - Consegna -  Spedizione) deve essere  confermata poiche non sono del tutto sicuro. Dovrebbe rappresentare la seguente cosa = (Una spedizione può contenere più carrelli)
