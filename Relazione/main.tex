@@ -42,7 +42,73 @@ la località di produzione ed un recapito telefonico.
 
 \subsection{Descrizione testuale}
 
-\dots
+Nella base di dati sono presenti i dati degli \textbf{utenti} registrati, di ogni utente sono noti:
+\begin{itemize}
+    \item Nome
+    \item Cognome
+    \item Indirizzo email
+    \item Password 
+    \item Numero di telefono
+    \item Indirizzo di residenza per la consegna
+    \item Metodi di pagamento
+\end{itemize}
+Un utente può abbonarsi all'offerta "Prime", che avrà durata mensile o annuale in base alla scelta dell'utente. L’utente abbonato non paga i costi di
+spedizione su tutti i prodotti prime.\\
+Le \textbf{carte di credito} utilizzate dall’utente devono essere provviste di:
+\begin{itemize}
+    \item Numero
+    \item Circuito (Mastercard, Visa, …)
+    \item Scadenza
+    \item CVC
+    \item Intestatario
+\end{itemize}
+I pagamenti vengono autorizzati attraverso un sito esterno, rilevato automaticamente dal circuito.\\
+Ogni \textbf{fornitore} deve fornire le informazioni riguardo a:
+\begin{itemize}
+    \item Nome
+    \item Numero di telefono
+    \item Indirizzo email
+    \item Partita IVA
+    \item Indirizzo (Via, Numero civico, CAP, Città, Provincia, Stato) dei propri stabilimenti
+\end{itemize} 
+Gli stabilimenti dei fornitori possono trovarsi anche in paesi esteri fuori dall'Italia.\\
+Di ogni \textbf{prodotto}, inoltre, si vuole conoscere:
+\begin{itemize}
+    \item Codice
+    \item Nome
+    \item Prezzo
+    \item Quantita' disponibile
+    \item Peso
+    \item Descrizione
+\end{itemize}
+Ogni \textbf{ordine} deve memorizzare le informazioni riguardo:
+\begin{itemize}
+    \item Cliente
+    \item Fornitore
+    \item Prodotti ordinati 
+    \item Metodo di pagamento utilizzato
+    \item Data e ora del pagamento
+    \item Importo pagato
+    \item Indirizzo di consegna
+\end{itemize}
+Gli ordini possono essere ritirati dal cliente, in quel caso deve essergli fornita la data e l’ora di arrivo della propria consegna al punto di ritiro
+scelto dall'utente, oppure possono essere spediti all'indirizzo di residenza dell'utente.\\
+Quando viene richiesta una \textbf{spedizione} si vogliono memorizzare le informazioni riguardo:
+\begin{itemize}
+    \item Data di partenza della spedizione
+    \item Data di arrivo dell'ordine
+    \item Fascia oraria di arrivo
+    \item Orario effettivo di arrivo
+\end{itemize}
+Infine interessa conoscere i \textbf{punti di consegna}. Per ogni Punto di consegna si vogliono memorizzare le seguenti informazioni:
+\begin{itemize}
+    \item Indirizzo (Via, Numero civico, CAP, Città, Provincia, Stato)
+\end{itemize}
+Inoltre, se il punto di consegna e' un punto di ritiro scelto dall'utente (e quindi non il suo indirizzo di residenza), ci interessa sapere:
+\begin{itemize}
+    \item Orario di apertura
+    \item Orario di chiusura
+\end{itemize}
 
 \subsection{Glossario dei termini}
 
@@ -76,10 +142,15 @@ la località di produzione ed un recapito telefonico.
         %Termine
         Carrello &
         %Descrizione
-        ZOna di memorizzazione dei prodotti selezionati che non sono ancora stati acquistati  &
+        Zona di memorizzazione dei prodotti selezionati che non sono ancora stati acquistati  &
         %Collegamenti
         Prodotto, Ordine, Utente\\
         \hline
+
+        %Termine
+        Prodotto &
+        %Descrizione
+        
 
     \end{tabularx}
 \end{center}
