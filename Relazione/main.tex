@@ -52,8 +52,8 @@ Nella base di dati sono presenti i dati degli \textbf{utenti} registrati, di ogn
     \item Indirizzo di residenza per la consegna
     \item Metodi di pagamento
 \end{itemize}
-Un utente può abbonarsi all'offerta "Prime", che avrà durata mensile o annuale in base alla scelta dell'utente. L’utente abbonato non paga i costi di
-spedizione su tutti i prodotti prime.\\
+Un utente può abbonarsi all'offerta "Prime", che avrà durata mensile o annuale in base alla scelta dell'utente. L'utente abbonato non paga i costi di
+spedizione su tutti i prodotti indicati.\\
 Le \textbf{carte di credito} utilizzate dall’utente devono essere provviste di:
 \begin{itemize}
     \item Numero
@@ -77,17 +77,17 @@ Di ogni \textbf{prodotto}, inoltre, si vuole conoscere:
     \item Codice
     \item Nome
     \item Prezzo
-    \item Quantita' disponibile
+    \item Disponibilità prime
+    \item Costo di spedizione
     \item Peso
     \item Descrizione
+    \item Quantità disponibile
 \end{itemize}
 Ogni \textbf{ordine} deve memorizzare le informazioni riguardo:
 \begin{itemize}
-    \item Cliente
-    \item Fornitore
-    \item Prodotti ordinati 
+    \item Carrello (Utente e Prodotti ordinati)
     \item Metodo di pagamento utilizzato
-    \item Data e ora del pagamento
+    \item Data e ora di acquisto
     \item Importo pagato
     \item Indirizzo di consegna
 \end{itemize}
@@ -95,6 +95,7 @@ Gli ordini possono essere ritirati dal cliente, in quel caso deve essergli forni
 scelto dall'utente, oppure possono essere spediti all'indirizzo di residenza dell'utente.\\
 Quando viene richiesta una \textbf{spedizione} si vogliono memorizzare le informazioni riguardo:
 \begin{itemize}
+    \item Codice
     \item Data di partenza della spedizione
     \item Data di arrivo dell'ordine
     \item Fascia oraria di arrivo
@@ -104,7 +105,7 @@ Infine interessa conoscere i \textbf{punti di consegna}. Per ogni Punto di conse
 \begin{itemize}
     \item Indirizzo (Via, Numero civico, CAP, Città, Provincia, Stato)
 \end{itemize}
-Inoltre, se il punto di consegna e' un punto di ritiro scelto dall'utente (e quindi non il suo indirizzo di residenza), ci interessa sapere:
+Inoltre, se il punto di consegna è un punto di ritiro scelto dall'utente (e quindi non il suo indirizzo di residenza), ci interessa sapere:
 \begin{itemize}
     \item Orario di apertura
     \item Orario di chiusura
@@ -114,7 +115,7 @@ Inoltre, se il punto di consegna e' un punto di ritiro scelto dall'utente (e qui
 
 \begin{center}
     
-    \begin{tabularx}{0.9\textwidth} {
+    \begin{tabularx}{0.98\textwidth} {
         | >{\raggedright\arraybackslash}X |
           >{\raggedright\arraybackslash}X |
           >{\raggedright\arraybackslash}X |
@@ -134,7 +135,7 @@ Inoltre, se il punto di consegna e' un punto di ritiro scelto dall'utente (e qui
         %Termine
         Prime &
         %Descrizione
-        Utente dotato di un abbonamento attivo per poter usufruire delle agevolazioni di spedizione &
+        Utente dotato di un abbonamento attivo che usufruisce delle agevolazioni di acquisto e spedizione &
         %Collegamenti
         Entità figlia di utente \\ 
         \hline
@@ -150,6 +151,66 @@ Inoltre, se il punto di consegna e' un punto di ritiro scelto dall'utente (e qui
         %Termine
         Prodotto &
         %Descrizione
+        Un bene tangibile, venduto nel sito e acquistabile da qualunque utente &
+        %Collegamenti
+        Fornitore, Carrello, Reso\\
+        \hline
+
+        %Termine
+        Costo spedizione &
+        %Descrizione
+        Il costo della spedizione (nel caso di validità "Prime" questo non viene calcolato nell'importo totale) &
+        %Collegamenti
+        Attributo di Prodotto\\
+        \hline
+
+        %Termine
+        Importo &
+        %Descrizione
+        Costo totale relativo ad un ordine. Ogni prodotto comprende anche i costi di spedizione &
+        %Collegamenti
+        Attributo di Ordine \\ 
+        \hline
+
+        %Termine
+        Fornitore &
+        %Descrizione
+        L'ente che produce e mette i vendita i propri prodotti &
+        %Collegamenti
+        Prodotto, Stabilimento \\ 
+        \hline
+
+        %Termine
+        Stabilimento &
+        %Descrizione
+        Una sede di produzione di un fornitore (può trovarsi anche all'estero) &
+        %Collegamenti
+        Fornitore, Reso \\ 
+        \hline
+        
+        %Termine
+        Spedizione &
+        %Descrizione
+        Tempo che trascorre tra la presa in carico fino al punto di consegna di uno o più ordini &
+        %Collegamenti
+        Ordine \\ 
+        \hline
+
+        %Termine
+        Punto di consegna &
+        %Descrizione
+        Indirizzo di spedizione &
+        %Collegamenti
+        Ordine \\ 
+        \hline
+
+        %Termine
+        Punto di ritiro &
+        %Descrizione
+        Esercente che fornisce il proprio stabilimento per la ricezione e il ritiro delle consegne &
+        %Collegamenti
+        Entità figlia di Punto di consegna \\ 
+        \hline
         
 
     \end{tabularx}
