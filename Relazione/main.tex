@@ -12,6 +12,7 @@
 }
 
 \usepackage{tabularx}
+\usepackage{ltablex}
 
 \begin{document}
 
@@ -30,13 +31,15 @@ per poi andarlo a ritirare personalmente.\\
 Ogni utente che desidera fare degli acquisti dovrà registrarsi attraverso la propria email,
 aggiungendo i propri dati personali e i metodi di pagamento direttamente nel sito.
 Inoltre per chi lo desidera ci si potrà abbonare all'offerta "Prime" per evitare i costi di spedizione
-su tutti i prodotti certificati Prime e per poter ricevere le propire consegne in brevissimo tempo
-in più verrà fornito l'accesso ad altri servizi esclusivi \textit{\{nome-sito\}}.\\
+su tutti i prodotti certificati Prime e per poter ricevere le propire consegne in brevissimo tempo.
+In più verrà fornito l'accesso ad altri servizi esclusivi \textit{\{nome-sito\}}.\\
 Visualizzando i propri acquisti sarà possibile conoscere la data di presa in carico della spedizione
 e quella di arrivo al punto di consegna. In caso di necessità sarà anche possibile specificare alcune preferenze
 di spedizione, in segutio all'avvenuta operazione di acquisto dei propri prodotti.\\
 \textit{\{nome-sito\}} assicura ai propri clienti che i fornitori siano accertati mettendo a disposizione
-la località di produzione ed un recapito telefonico.
+la località di produzione ed un recapito telefonico.\\
+In caso di guasto o per via di una determinata motivazione specificata dall'utente sarà
+possibile effettuare il reso dei prodotti acquistati avendo la garanzia di rimborso della spesa. 
 
 \section{Analisi dei requisiti}
 
@@ -72,16 +75,16 @@ Ogni \textbf{fornitore} deve fornire le informazioni riguardo a:
     \item Indirizzo (Via, Numero civico, CAP, Città, Provincia, Stato) dei propri stabilimenti
 \end{itemize} 
 Gli stabilimenti dei fornitori possono trovarsi anche in paesi esteri fuori dall'Italia.\\
-Di ogni \textbf{prodotto}, inoltre, si vuole conoscere:
+Di ogni \textbf{prodotto}, si vuole conoscere:
 \begin{itemize}
     \item Codice
     \item Nome
     \item Prezzo
-    \item Disponibilità prime
-    \item Costo di spedizione
+    \item Quantità disponibile
     \item Peso
     \item Descrizione
-    \item Quantità disponibile
+    \item Costo di spedizione
+    \item Offerta prime
 \end{itemize}
 Ogni \textbf{ordine} deve memorizzare le informazioni riguardo:
 \begin{itemize}
@@ -90,9 +93,10 @@ Ogni \textbf{ordine} deve memorizzare le informazioni riguardo:
     \item Data e ora di acquisto
     \item Importo pagato
     \item Indirizzo di consegna
+    \item Preferenze di spedizione (opzionale)
 \end{itemize}
 Gli ordini possono essere ritirati dal cliente, in quel caso deve essergli fornita la data e l’ora di arrivo della propria consegna al punto di ritiro
-scelto dall'utente, oppure possono essere spediti all'indirizzo di residenza dell'utente.\\
+scelto oppure possono essere spediti all'indirizzo di residenza dell'utente.\\
 Quando viene richiesta una \textbf{spedizione} si vogliono memorizzare le informazioni riguardo:
 \begin{itemize}
     \item Codice
@@ -101,7 +105,8 @@ Quando viene richiesta una \textbf{spedizione} si vogliono memorizzare le inform
     \item Fascia oraria di arrivo
     \item Orario effettivo di arrivo
 \end{itemize}
-Infine interessa conoscere i \textbf{punti di consegna}. Per ogni Punto di consegna si vogliono memorizzare le seguenti informazioni:
+Per ricevere i propri prodotti interessa conoscere i \textbf{punti di consegna}. Per ogni Punto di consegna si vogliono
+memorizzare le seguenti informazioni:
 \begin{itemize}
     \item Indirizzo (Via, Numero civico, CAP, Città, Provincia, Stato)
 \end{itemize}
@@ -109,6 +114,13 @@ Inoltre, se il punto di consegna è un punto di ritiro scelto dall'utente (e qui
 \begin{itemize}
     \item Orario di apertura
     \item Orario di chiusura
+\end{itemize}
+Infine per effettuare un \textbf{reso} è necessario specificare:
+\begin{itemize}
+    \item Utente
+    \item Prodotto acquistato
+    \item Quantità da rendere
+    \item Motivazione 
 \end{itemize}
 
 \subsection{Glossario dei termini}
@@ -175,15 +187,23 @@ Inoltre, se il punto di consegna è un punto di ritiro scelto dall'utente (e qui
         %Termine
         Fornitore &
         %Descrizione
-        L'ente che produce e mette i vendita i propri prodotti &
+        L'ente che produce e mette in vendita i propri prodotti &
         %Collegamenti
         Prodotto, Stabilimento \\ 
+        \hline  
+
+        %Termine
+        PIVA &
+        %Descrizione
+        La partita IVA è una sequenza di cifre che identifica univocamente un soggetto che esercita un'attività &
+        %Collegamenti
+        Attributo di Fornitore \\ 
         \hline
 
         %Termine
         Stabilimento &
         %Descrizione
-        Una sede di produzione di un fornitore (può trovarsi anche all'estero) &
+        Una sede di produzione di un fornitore &
         %Collegamenti
         Fornitore, Reso \\ 
         \hline
@@ -197,6 +217,14 @@ Inoltre, se il punto di consegna è un punto di ritiro scelto dall'utente (e qui
         \hline
 
         %Termine
+        Codice &
+        %Descrizione
+        Codice univoco dal quale è possibile ottenere le date di spedizione del proprio ordine &
+        %Collegamenti
+        Attributo di Spedizione \\ 
+        \hline
+
+        %Termine
         Punto di consegna &
         %Descrizione
         Indirizzo di spedizione &
@@ -207,11 +235,18 @@ Inoltre, se il punto di consegna è un punto di ritiro scelto dall'utente (e qui
         %Termine
         Punto di ritiro &
         %Descrizione
-        Esercente che fornisce il proprio stabilimento per la ricezione e il ritiro delle consegne &
+        Esercente che fornisce il proprio stabilimento per la ricezione e il ritiro delle consegne a determinati orari &
         %Collegamenti
         Entità figlia di Punto di consegna \\ 
         \hline
-        
+
+        %Termine
+        Reso &
+        %Descrizione
+        La possibilità di ottenere il rimborso su un prodotto acquistato  restituendolo al fornitore &
+        %Collegamenti
+        Ordine, Prodotto, Stabilimento \\ 
+        \hline
 
     \end{tabularx}
 \end{center}
