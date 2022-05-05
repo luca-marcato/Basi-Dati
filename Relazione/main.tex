@@ -20,7 +20,7 @@
     \huge\textbf{Title DB}
 \end{center}
 
-\section{\textbf{Abstract}}
+\section{Abstract}
 
 \textit{\{nome-sito\}} è un azienda italiana che vuole aprire la propria attività di mercato online
 sul territorio nazionale e come tale necessità di un database per la gestione delle sue risorse.\\
@@ -62,7 +62,7 @@ Le \textbf{carte di credito} utilizzate dall’utente devono essere provviste di
     \item Numero
     \item Circuito (Mastercard, Visa, …)
     \item Scadenza
-    \item CVC
+    \item CVV
     \item Intestatario
 \end{itemize}
 I pagamenti vengono autorizzati attraverso un sito esterno, rilevato automaticamente dal circuito.\\
@@ -100,10 +100,9 @@ scelto oppure possono essere spediti all'indirizzo di residenza dell'utente.\\
 Quando viene richiesta una \textbf{spedizione} si vogliono memorizzare le informazioni riguardo:
 \begin{itemize}
     \item Codice
-    \item Data di partenza della spedizione
-    \item Data di arrivo dell'ordine
-    \item Fascia oraria di arrivo
-    \item Orario effettivo di arrivo
+    \item Data di partenza prevista
+    \item Data di arrivo prevista
+    \item Data effettiva
 \end{itemize}
 Per ricevere i propri prodotti interessa conoscere i \textbf{punti di consegna}. Per ogni Punto di consegna si vogliono
 memorizzare le seguenti informazioni:
@@ -252,6 +251,114 @@ Infine per effettuare un \textbf{reso} è necessario specificare:
 \end{center}
 
 \subsection{Operazioni}
+
+\dots
+
+\section{Progettazione Concettuale}
+
+\subsection{Lista entità}
+
+\textbf{Se non specificato l'attributo è NOT NULL}
+\begin{itemize}
+    \item Utente
+    \begin{itemize}
+        \item \underline{Email}: varchar(100) PRIMARY KEY
+        \item Nome: varchar(50)
+        \item Cognome: varchar(50)
+        \item NumeroTelefono: varchar(15)
+        \item Password: varchar(20)
+        \begin{description}
+            \item L'entità utente si specializza in una sottocategoria con una \textbf{generalizzazione parziale}:
+        \end{description}
+        \item[•] Utente Prime
+        \begin{itemize}
+            \item DataIscrizione: timestamp
+            \item DataScadenza: timestamp, (\textgreater{} DataIscrizione)
+        \end{itemize}
+    \end{itemize}
+    \item Carrello
+    \begin{itemize}
+        \item \underline{Id}: integer PRIMARY KEY
+        \item \underline{Utente}: varchar(100) PRIMARY KEY
+    \end{itemize}
+    \item Prodotto
+    \begin{itemize}
+        \item \underline{Codice}: varchar(14) PRIMARY KEY
+        \item Nome: varchar(100)
+        \item Prezzo: decimal, (\textgreater{}= 0)
+        \item QuantitàDisponibile: integer, (\textgreater{}= 0)
+        \item Peso: decimal, (\textgreater{} 0)
+        \item Descrizione: varchar(5000)
+        \item CostoSpedizione: decimal, (\textgreater{}= 0)
+        \item Prime: boolean
+    \end{itemize}
+    \item Fornitore
+    \begin{itemize}
+        \item \underline{PIVA}: varchar(11) PRIMARY KEY
+        \item Nome: varchar(50)
+        \item Email: varchar(100)
+        \item NumeroTelefono: varchar(15)
+    \end{itemize}
+    \item Stabilimento
+    \begin{itemize}
+        \item \underline{Via}: varchar(100) PRIMARY KEY
+        \item \underline{NumeroCivico}: varchar(10) PRIMARY KEY
+        \item \underline{CAP}: varchar(5) PRIMARY KEY
+        \item Città: varchar(100)
+        \item Stato: varchar(100)
+    \end{itemize}
+    \item Carta di credito
+    \begin{itemize}
+        \item \underline{Numero}: varchar(16) PRIMARY KEY
+        \item Circuito: varchar(25)
+        \item Scadenza: date
+        \item CVV: varchar(3)
+        \item Intestatario: varchar(50)
+    \end{itemize}
+    \item Ordine
+    \begin{itemize}
+        \item \underline{Id}: integer PRIMARY KEY
+        \item \underline{Carrello}: integer PRIMARY KEY
+        \item \underline{Utente}: varchar(100) PRIMARY KEY
+        \item DataAcquisto: timestamp
+        \item Importo: decimal
+        \item PreferenzeSpedizione: varchar(500) può essere NULL
+    \end{itemize}
+    \item Spedizione:
+    \begin{itemize}
+        \item \underline{Codice}: varchar(13) PRIMARY KEY
+        \item DataPartenza: timestamp
+        \item DataArrivo: timestamp (\textgreater{} DataPartenza)
+        \item DataEffettiva: timestamp può essere NULL
+    \end{itemize}
+    \item Punto di consegna
+    \begin{itemize}
+        \item \underline{Via}: varchar(100) PRIMARY KEY
+        \item \underline{NumeroCivico}: varchar(10) PRIMARY KEY
+        \item \underline{CAP}: varchar(5) PRIMARY KEY
+        \item Città: varchar(100)
+        \begin{description}
+            \item L'entità Punto di consegna si specializza in due sottocategorie con una \textbf{generalizzazione totale}:
+        \end{description}
+        \item[•] Punto di ritiro
+        \begin{itemize}
+            \item OraApertura: time
+            \item OraChiusura: time, (\textgreater{} OraApertura)
+        \end{itemize}
+        \item[•] Residenza
+    \end{itemize}
+    \item Reso
+    \begin{itemize}
+        \item \underline{Utente}: varchar(100) PRIMARY KEY
+        \item \underline{Carrello}: integer PRIMARY KEY
+        \item \underline{Ordine}: integer PRIMARY KEY
+        \item \underline{Prodotto}: varchar(14) PRIMARY KEY
+        \item Quantità: integer, (\textgreater{} 0)
+        \item Motivazione: varchar(500)
+    \end{itemize}
+\end{itemize}
+
+\subsection{Tabella delle relazioni}
 
 \dots
 
