@@ -127,9 +127,9 @@ Infine per effettuare un \textbf{reso} è necessario specificare:
 \begin{center}
     
     \begin{tabularx}{0.98\textwidth} {
-        | >{\raggedright\arraybackslash}X |
-          >{\raggedright\arraybackslash}X |
-          >{\raggedright\arraybackslash}X |
+        | >{\raggedright\arraybackslash}>{\hsize=.3\hsize}X |
+          >{\raggedright\arraybackslash}                  X |
+          >{\raggedright\arraybackslash}>{\hsize=.5\hsize}X |
     }
         \hline
         \textbf{Termine} & \textbf{Descrizione} & \textbf{Collegamenti} \\
@@ -360,6 +360,172 @@ Infine per effettuare un \textbf{reso} è necessario specificare:
 
 \subsection{Tabella delle relazioni}
 
-\dots
+\begin{center}
+    \begin{tabularx}{0.98\textwidth} {
+        | >{\raggedright\arraybackslash}>{\hsize=.4\hsize}X |
+          >{\raggedright\arraybackslash}>{\hsize=.4\hsize}X |
+          >{\raggedright\arraybackslash}                  X |
+          >{\raggedright\arraybackslash}>{\hsize=.4\hsize}X |
+    }
+        \hline
+        \textbf{Relazione} & \textbf{Entità coinvolte} & \textbf{Descrizione} & \textbf{Attributi} \\
+        \hline\hline
+
+        %Relazione
+        Acquisto &
+        %Entità coinvolte
+        Carrello (0,1)
+        Ordine (1,1) &
+        %Descrizione
+        Un utente può decidere di acquistare i prodotti che ha all'interno del carrello (facendo quindi un ordine relativo a quel carrello), oppure no e quindi non procedere all'acquisto &
+        %Attributi
+        Data e ora: TIMESTAMP \\ 
+        \hline
+
+        %Relazione
+        Appartiene &
+        %Entità coinvolte
+        Ordine (0,N)
+        Reso (1,N) &
+        %Descrizione
+        Un utente può decidere di effettuare il reso di uno o più prodotti, in tal caso l'ordine permette di risalire al cliente che ha acquistato il prodotto da restituire  &
+        %Attributi
+        Nessuno \\ 
+        \hline
+        
+        %Relazione
+        Attività &
+        %Entità coinvolte
+        Fornitore (1,N)
+        Prodotto (1,1) &
+        %Descrizione
+        Un fornitore può mettere in vendita un certo quantitativo di prodotti che quindi saranno riconducibili a lui  &
+        %Attributi
+        Nessuno \\ 
+        \hline
+        
+        %Relazione
+        Consegna &
+        %Entità coinvolte
+        Ordine (1,1)
+        Spedizione (1,N) &
+        %Descrizione
+        Una volta effettuato un ordine, va organizzata una spedizione affinché venga consegnato all'utente  &
+        %Attributi
+        Nessuno \\ 
+        \hline
+        
+        %Relazione
+        Località &
+        %Entità coinvolte
+        Fornitore (1,N)
+        Stabilimento (1,1) &
+        %Descrizione
+        Un fornitore avrà a disposizione uno o più stabilimenti che metteranno a disposizione i prodotti pronti per la vendita  &
+        %Attributi
+        Nessuno \\ 
+        \hline
+        
+        %Relazione
+        Località &
+        %Entità coinvolte
+        Residenza (1,N)
+        Utente (0,1) &
+        %Descrizione
+        Un utente può registrare al più un indirizzo per la residenza a cui potrà far arrivare le spedizioni richieste  &
+        %Attributi
+        Nessuno \\ 
+        \hline
+        
+        %Relazione
+        Metodo di pagamento &
+        %Entità coinvolte
+        Carta di credito (1,1)
+        Utente (1,N) &
+        %Descrizione
+        Un utente deve registrare uno o più metodi di pagamento, una carta di credito può essere memorizzata da uno o più utenti  &
+        %Attributi
+        Nessuno \\ 
+        \hline
+        
+        %Relazione
+        Possiede &
+        %Entità coinvolte
+        Carrello (1,1)
+        Utente (1,1) &
+        %Descrizione
+        Un utente avrà a disposizione un carrello in cui mettere tutti i prodotti che intende acquistare  &
+        %Attributi
+        Nessuno \\ 
+        \hline
+        
+        %Relazione
+        Prodotti salvati &
+        %Entità coinvolte
+        Carrello (0,N)
+        Prodotto (1,1) &
+        %Descrizione
+        Un carrello al suo interno avrà una lista di prodotti che l'utente intende acquistare &
+        %Attributi
+        Quantità: INT \textgreater{} 0 \\ 
+        \hline
+        
+        %Relazione
+        Prodotti salvati &
+        %Entità coinvolte
+        Carrello (0,N)
+        Prodotto (1,1) &
+        %Descrizione
+        Un carrello al suo interno avrà una lista di prodotti che l'utente intende acquistare &
+        %Attributi
+        Quantità: INT \textgreater{} 0 \\ 
+        \hline
+        
+        %Relazione
+        Rifiuto &
+        %Entità coinvolte
+        Prodotto (0,N)
+        Reso (1,1) &
+        %Descrizione
+        E' possibile effettuare il reso del prodotto se, ad esempio, non rispetta la descrizione con cui è stato presentato &
+        %Attributi
+        Nessuno \\ 
+        \hline
+        
+        %Relazione
+        Transazione &
+        %Entità coinvolte
+        Carta di credito (0,N)
+        Ordine (1,1) &
+        %Descrizione
+        Una carta di credito può essere utilizzata per zero o più ordini, un ordine è sempre associato ad un metodo di pagamento &
+        %Attributi
+        Codice transazione: VARCHAR \\ 
+        \hline
+        
+        %Relazione
+        Trasporto &
+        %Entità coinvolte
+        Reso (1,1)
+        Stabilimento (0,N) &
+        %Descrizione
+        Un prodotto che viene restituito va riportato in uno stabilimento che lo prenderà in gestione per smaltirlo &
+        %Attributi
+        Nessuno \\ 
+        \hline
+        
+        %Relazione
+        Trasporto &
+        %Entità coinvolte
+        Ordine (1,1)
+        Punto di consegna (0,N) &
+        %Descrizione
+        Una volta effettuato l'ordine, esso va consegnato all'indirizzo scelto dall'utente o, alternativamente, ad un punto di ritiro &
+        %Attributi
+        Nessuno \\ 
+        \hline
+
+    \end{tabularx}
+\end{center}
 
 \end{document}
