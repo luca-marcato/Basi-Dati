@@ -383,7 +383,7 @@ Infine per effettuare un \textbf{reso} è necessario specificare:
         \hline
 
         %Relazione
-        Appartiene &
+        Cliente &
         %Entità coinvolte
         Ordine (0,N)
         Reso (1,N) &
@@ -443,7 +443,7 @@ Infine per effettuare un \textbf{reso} è necessario specificare:
         Carta di credito (1,1)
         Utente (1,N) &
         %Descrizione
-        Un utente deve registrare uno o più metodi di pagamento, una carta di credito può essere memorizzata da uno o più utenti  &
+        Un utente deve registrare uno o più metodi di pagamento, per poter effettuare degli acquisti  &
         %Attributi
         Nessuno \\ 
         \hline
@@ -457,17 +457,6 @@ Infine per effettuare un \textbf{reso} è necessario specificare:
         Un utente avrà a disposizione un carrello in cui mettere tutti i prodotti che intende acquistare  &
         %Attributi
         Nessuno \\ 
-        \hline
-        
-        %Relazione
-        Prodotti salvati &
-        %Entità coinvolte
-        Carrello (0,N)
-        Prodotto (1,1) &
-        %Descrizione
-        Un carrello al suo interno avrà una lista di prodotti che l'utente intende acquistare &
-        %Attributi
-        Quantità: INT \textgreater{} 0 \\ 
         \hline
         
         %Relazione
