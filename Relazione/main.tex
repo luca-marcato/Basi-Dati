@@ -274,6 +274,7 @@ Infine per effettuare un \textbf{reso} è necessario specificare:
         \begin{itemize}
             \item[–] DataIscrizione: timestamp
             \item[–] DataScadenza: timestamp, (\textgreater{} DataIscrizione)
+            \item[–] Abbonamento: Enumerated, ("MENSILE", "ANNUALE")
         \end{itemize}
     \end{itemize}
     \item Carrello
@@ -516,5 +517,17 @@ Infine per effettuare un \textbf{reso} è necessario specificare:
 
     \end{tabularx}
 \end{center}
+
+\textbf{Vincoli non rappresentabili tramite schema E-R:}
+
+\begin{itemize}
+    \item Un cliente può effettuare il reso solo dei prodotti che ha precedentemente acquistato e che gli sono stati consegnati
+    \item L'attributo importo dell'entità ordine è uguale alla somma dei prezzi dei prodotti presenti nel carrello più le relative spese di spedizione dei singoli prodotti
+\end{itemize}
+
+\textbf{Vincoli di derivazione:}
+\begin{itemize}
+    \item Le date degli attributi DataIscrizione e DataScadenza dell'entità utente prime devono essere coerenti in base tipo di abbonamento dell'utente
+\end{itemize}
 
 \end{document}
