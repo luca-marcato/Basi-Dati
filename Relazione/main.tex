@@ -1,8 +1,10 @@
 \documentclass[11pt]{article}
 
+% font
 \usepackage{helvet}
 \renewcommand{\familydefault}{\sfdefault}
 
+% formato della pagina
 \usepackage{geometry}
 \geometry{
    a4paper,
@@ -11,8 +13,13 @@
    top=20mm,
 }
 
+% tabelle
 \usepackage{tabularx}
 \usepackage{ltablex}
+
+% immagini
+\usepackage{graphicx}
+\usepackage{float}
 
 \begin{document}
 
@@ -305,7 +312,7 @@ Infine per effettuare un \textbf{reso} è necessario specificare:
         \item \underline{Via}: varchar(100) PRIMARY KEY
         \item \underline{NumeroCivico}: varchar(10) PRIMARY KEY
         \item \underline{CAP}: varchar(5) PRIMARY KEY
-        \item Città: varchar(100)
+        \item \underline{Città}: varchar(100)
         \item Stato: varchar(100)
     \end{itemize}
     \item Carta di credito
@@ -337,7 +344,7 @@ Infine per effettuare un \textbf{reso} è necessario specificare:
         \item \underline{Via}: varchar(100) PRIMARY KEY
         \item \underline{NumeroCivico}: varchar(10) PRIMARY KEY
         \item \underline{CAP}: varchar(5) PRIMARY KEY
-        \item Città: varchar(100)
+        \item \underline{Città}: varchar(100)
         \begin{description}
             \item L'entità Punto di consegna si specializza in due sottocategorie con una \textbf{generalizzazione totale}:
         \end{description}
@@ -519,7 +526,6 @@ Infine per effettuare un \textbf{reso} è necessario specificare:
 \end{center}
 
 \textbf{Vincoli non rappresentabili tramite schema E-R:}
-
 \begin{itemize}
     \item Un cliente può effettuare il reso solo dei prodotti che ha precedentemente acquistato e che gli sono stati consegnati
     \item L'attributo importo dell'entità ordine è uguale alla somma dei prezzi dei prodotti presenti nel carrello più le relative spese di spedizione dei singoli prodotti
@@ -527,7 +533,34 @@ Infine per effettuare un \textbf{reso} è necessario specificare:
 
 \textbf{Vincoli di derivazione:}
 \begin{itemize}
-    \item Le date degli attributi DataIscrizione e DataScadenza dell'entità utente prime devono essere coerenti in base tipo di abbonamento dell'utente
+    \item Il valore degli attributi DataIscrizione e DataScadenza dell'entità utente prime devono essere coerenti con il tipo di abbonamento dell'utente
 \end{itemize}
+
+\begin{center}
+    \textbf{Schema Concettuale}
+\end{center}
+
+\begin{figure}[H]
+    \includegraphics[scale=0.44]{media/SampleAmazonDB.png}
+    \label{Schema E-R}
+\end{figure}
+
+\section{Progettazione Logica}
+
+\subsection{Ristrutturazione}
+
+\subsubsection{Ananlisi delle rindondanze}
+
+\dots
+
+\subsubsection{Eliminazione delle generalizzazioni}
+
+\dots
+
+\subsubsection{Scelta degli identificatori primari}
+
+\dots
+
+\subsection{Crezione delle tabelle}
 
 \end{document}
