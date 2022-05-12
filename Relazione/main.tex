@@ -8,8 +8,9 @@
 \usepackage{geometry}
 \geometry{
    a4paper,
-   total={170mm,257mm},
-   left=20mm,
+   total={160mm,257mm},
+   left=17mm,
+   right=17mm,
    top=20mm,
 }
 
@@ -62,8 +63,8 @@ Nella base di dati sono presenti i dati degli \textbf{utenti} registrati, di ogn
     \item Indirizzo di residenza per la consegna
     \item Metodi di pagamento
 \end{itemize}
-Un utente può abbonarsi all'offerta "Prime", che avrà durata mensile o annuale in base alla scelta dell'utente. L'utente abbonato non paga i costi di
-spedizione su tutti i prodotti indicati.\\
+Un utente può abbonarsi all'offerta "Prime", che avrà durata mensile o annuale in base alla scelta dell'utente.
+L'utente abbonato non paga i costi di spedizione su tutti i prodotti indicati.\\
 Le \textbf{carte di credito} utilizzate dall’utente devono essere provviste di:
 \begin{itemize}
     \item Numero
@@ -133,7 +134,7 @@ Infine per effettuare un \textbf{reso} è necessario specificare:
 
 \begin{center}
     
-    \begin{tabularx}{0.98\textwidth} {
+    \begin{tabularx}{0.99\textwidth} {
         | >{\raggedright\arraybackslash}>{\hsize=.3\hsize}X |
           >{\raggedright\arraybackslash}                  X |
           >{\raggedright\arraybackslash}>{\hsize=.5\hsize}X |
@@ -147,7 +148,7 @@ Infine per effettuare un \textbf{reso} è necessario specificare:
         %Descrizione
         Utente registrato al sito &
         %Collegamenti
-        Carrello, Carta di credito, Residenza \\ 
+        Carrello, CartaDiCredito, Residenza \\ 
         \hline
 
         %Termine
@@ -155,7 +156,7 @@ Infine per effettuare un \textbf{reso} è necessario specificare:
         %Descrizione
         Utente dotato di un abbonamento attivo che usufruisce delle agevolazioni di acquisto e spedizione &
         %Collegamenti
-        Entità figlia di utente \\ 
+        Entità figlia di Utente \\ 
         \hline
 
         %Termine
@@ -231,7 +232,7 @@ Infine per effettuare un \textbf{reso} è necessario specificare:
         \hline
 
         %Termine
-        Punto di consegna &
+        PuntoDiConsegna &
         %Descrizione
         Indirizzo di spedizione &
         %Collegamenti
@@ -239,11 +240,11 @@ Infine per effettuare un \textbf{reso} è necessario specificare:
         \hline
 
         %Termine
-        Punto di ritiro &
+        PuntoDiRitiro &
         %Descrizione
         Esercente che fornisce il proprio stabilimento per la ricezione e il ritiro delle consegne a determinati orari &
         %Collegamenti
-        Entità figlia di Punto di consegna \\ 
+        Entità figlia di PuntoDiConsegna \\ 
         \hline
 
         %Termine
@@ -259,7 +260,101 @@ Infine per effettuare un \textbf{reso} è necessario specificare:
 
 \subsection{Operazioni}
 
-\dots
+
+\begin{center}
+    
+    \begin{tabularx}{0.98\textwidth} {
+        | >{\raggedright\arraybackslash}X |
+          >{\raggedright\arraybackslash}X |
+          >{\raggedright\arraybackslash}X |
+    }
+
+    \hline
+    \textbf{Operazione} & \textbf{Tipo} & \textbf{Frequenza} \\
+    \hline\hline
+
+    %Operazione
+    Inserimento di un nuovo utente &
+    %Tipo
+    S &
+    %Frequenza
+    500 al giorno \\
+    \hline
+
+    %Operazione
+    Inserimento di un nuovo prodotto &
+    %Tipo
+    S &
+    %Frequenza
+    1000 al mese \\
+    \hline
+
+    %Operazione
+    Inserimento di un nuovo ordine &
+    %Tipo
+    S &
+    %Frequenza
+    20000 al giorno \\
+    \hline
+
+    %Operazione
+    Ricerca di un prodotto &
+    %Tipo
+    L &
+    %Frequenza
+    5000 all'ora \\
+    \hline
+
+    %Operazione
+    Ricerca dei dati riguardanti un fornitore &
+    %Tipo
+    L &
+    %Frequenza
+    200 al giorno \\
+    \hline
+
+    %Operazione
+    Visualizzazione dei prodotti nel proprio carrello &
+    %Tipo
+    L &
+    %Frequenza
+    10000 al giorno \\
+    \hline
+
+    %Operazione
+    Aggiornarmento della quantità disponibile di un prodotto &
+    %Tipo
+    S &
+    %Frequenza
+    1000 al mese \\
+    \hline
+
+    %Operazione
+    Richiesta di reso di un prodotto  &
+    %Tipo
+    S &
+    %Frequenza
+    2000 al mese \\
+    \hline
+
+    %Operazione
+    Visualizzazione della data di arrivo del proprio ordine &
+    %Tipo
+    L &
+    %Frequenza
+    500 al giorno \\
+    \hline
+
+    %Operazione
+    Ricerca della fascia oraria di apertura di un punto di ritiro &
+    %Tipo
+    L &
+    %Frequenza
+    500 al giorno \\
+    \hline
+    
+    \end{tabularx}
+\end{center}
 
 \section{Progettazione Concettuale}
 
@@ -315,7 +410,7 @@ Infine per effettuare un \textbf{reso} è necessario specificare:
         \item \underline{Città}: varchar(100)
         \item Stato: varchar(100)
     \end{itemize}
-    \item Carta di credito
+    \item CartaDiCredito
     \begin{itemize}
         \item \underline{Numero}: varchar(16) PRIMARY KEY
         \item Circuito: varchar(25)
@@ -339,7 +434,7 @@ Infine per effettuare un \textbf{reso} è necessario specificare:
         \item DataArrivo: timestamp (\textgreater{} DataPartenza)
         \item DataEffettiva: timestamp può essere NULL
     \end{itemize}
-    \item Punto di consegna
+    \item PuntoDiConsegna
     \begin{itemize}
         \item \underline{Via}: varchar(100) PRIMARY KEY
         \item \underline{NumeroCivico}: varchar(10) PRIMARY KEY
@@ -348,7 +443,7 @@ Infine per effettuare un \textbf{reso} è necessario specificare:
         \begin{description}
             \item L'entità Punto di consegna si specializza in due sottocategorie con una \textbf{generalizzazione totale}:
         \end{description}
-        \item[•] Punto di ritiro
+        \item[•] PuntoDiRitiro
         \begin{itemize}
             \item[–] OraApertura: time
             \item[–] OraChiusura: time, (\textgreater{} OraApertura)
@@ -394,7 +489,7 @@ Infine per effettuare un \textbf{reso} è necessario specificare:
         Cliente &
         %Entità coinvolte
         Ordine (0,N)
-        Reso (1,N) &
+        Reso (1,1) &
         %Descrizione
         Un utente può decidere di effettuare il reso di uno o più prodotti, in tal caso l'ordine permette di risalire al cliente che ha acquistato il prodotto da restituire  &
         %Attributi
@@ -448,7 +543,7 @@ Infine per effettuare un \textbf{reso} è necessario specificare:
         %Relazione
         Metodo di pagamento &
         %Entità coinvolte
-        Carta di credito (1,1)
+        CartaDiCredito (1,1)
         Utente (1,N) &
         %Descrizione
         Un utente deve registrare uno o più metodi di pagamento, per poter effettuare degli acquisti  &
@@ -492,7 +587,7 @@ Infine per effettuare un \textbf{reso} è necessario specificare:
         %Relazione
         Transazione &
         %Entità coinvolte
-        Carta di credito (0,N)
+        CartaDiCredito (0,N)
         Ordine (1,1) &
         %Descrizione
         Una carta di credito può essere utilizzata per zero o più ordini, un ordine è sempre associato ad un metodo di pagamento &
@@ -515,7 +610,7 @@ Infine per effettuare un \textbf{reso} è necessario specificare:
         Trasporto &
         %Entità coinvolte
         Ordine (1,1)
-        Punto di consegna (0,N) &
+        PuntoDiConsegna (0,N) &
         %Descrizione
         Una volta effettuato l'ordine, esso va consegnato all'indirizzo scelto dall'utente o, alternativamente, ad un punto di ritiro &
         %Attributi
@@ -555,7 +650,32 @@ Infine per effettuare un \textbf{reso} è necessario specificare:
 
 \subsubsection{Eliminazione delle generalizzazioni}
 
-\dots
+\begin{center}
+    \begin{tabularx}{0.97\textwidth} {
+        | >{\raggedright\arraybackslash}>{\hsize=.4\hsize}X |
+          >{\raggedright\arraybackslash}>{\hsize=.6\hsize}X |
+        }
+    
+        \hline
+        \textbf{Generalizzazione} & \textbf{Risoluzione} \\
+        \hline\hline
+
+        %Generalizzazione
+        Utente \textless{}--- Prime &
+        %Risoluzione
+        L'entità Prime viene accorpata in Utente, \\
+        \hline
+
+        %Generalizzazione
+        PuntoDiConsegna \textless{}--- Residenza, PuntoDiRitiro &
+        %Risoluzione
+        Le entità Residenza e PuntoDiRitiro ereditano l'attributo composto Indirizzo da PuntoDiConsegna.
+        Perciò si rimuove l'entità padre e vengono create due nuove relazioni di Trasporto tra Ordine con
+        Residenza e PuntoDiRitiro  \\
+        \hline
+
+    \end{tabularx}
+\end{center}
 
 \subsubsection{Scelta degli identificatori primari}
 

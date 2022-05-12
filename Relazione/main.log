@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 21.12.10) (preloaded format=pdflatex 2022.1.22)  10 MAY 2022 11:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 21.12.10) (preloaded format=pdflatex 2022.1.22)  11 MAY 2022 20:05
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -46,7 +46,12 @@ Package: iftex 2020/03/06 v1.0d TeX engine tests
 \Gm@layouthoffset=\dimen145
 \Gm@layoutvoffset=\dimen146
 \Gm@dimlist=\toks17
- (C:\Users\marca\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg)) (C:\Users\marca\AppData\Local\Programs\MiKTeX\tex/latex/tools\tabularx.sty
+ (C:\Users\marca\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg))
+
+Package geometry Warning: Over-specification in `h'-direction.
+    `width' (455.24408pt) is ignored.
+
+(C:\Users\marca\AppData\Local\Programs\MiKTeX\tex/latex/tools\tabularx.sty
 Package: tabularx 2020/01/15 v2.11c `tabularx' package (DPC)
  (C:\Users\marca\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
 Package: array 2021/10/04 v2.5f Tabular extension package (FMi)
@@ -108,7 +113,7 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks22
 \@floatcapt=\box58
 )
-LaTeX Font Info:    Trying to load font information for OT1+phv on input line 24.
+LaTeX Font Info:    Trying to load font information for OT1+phv on input line 25.
  (C:\Users\marca\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1phv.fd
 File: ot1phv.fd 2020/03/25 scalable font definitions for OT1/phv.
 ) (C:\Users\marca\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
@@ -118,20 +123,20 @@ File: l3backend-pdftex.def 2021-12-14 L3 backend support: PDF output (pdfTeX)
 ) (main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -141,14 +146,14 @@ LaTeX Font Info:    ... okay on input line 24.
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
-* h-part:(L,W,R)=(56.9055pt, 483.69684pt, 56.90553pt)
+* h-part:(L,W,R)=(48.36967pt, 500.76852pt, 48.36967pt)
 * v-part:(T,H,B)=(56.9055pt, 731.23582pt, 56.90552pt)
 * \paperwidth=597.50787pt
 * \paperheight=845.04684pt
-* \textwidth=483.69684pt
+* \textwidth=500.76852pt
 * \textheight=731.23582pt
-* \oddsidemargin=-15.36449pt
-* \evensidemargin=-15.36449pt
+* \oddsidemargin=-23.90031pt
+* \evensidemargin=-23.90031pt
 * \topmargin=-52.36449pt
 * \headheight=12.0pt
 * \headsep=25.0pt
@@ -187,47 +192,52 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <10.95> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 32.
-LaTeX Font Info:    Trying to load font information for OMS+phv on input line 32.
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 33.
+LaTeX Font Info:    Trying to load font information for OMS+phv on input line 33.
  (C:\Users\marca\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\omsphv.fd
 File: omsphv.fd 
 )
 LaTeX Font Info:    Font shape `OMS/phv/m/it' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 32.
-LaTeX Font Info:    Trying to load font information for TS1+phv on input line 57.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 33.
+LaTeX Font Info:    Trying to load font information for TS1+phv on input line 58.
  (C:\Users\marca\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1phv.fd
 File: ts1phv.fd 2020/03/25 scalable font definitions for TS1/phv.
 ) [1
 
-{C:/Users/marca/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] [2] [3]
-LaTeX Font Info:    Trying to load font information for OML+phv on input line 283.
+{C:/Users/marca/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] [2]
+Overfull \hbox (14.81273pt too wide) in paragraph at lines 258--258
+[]|\OT1/phv/m/n/10.95 PuntoDiConsegna|  
+ []
+
+[3]
+LaTeX Font Info:    Trying to load font information for OML+phv on input line 378.
  (C:\Users\marca\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\omlphv.fd
 File: omlphv.fd 
 )
 LaTeX Font Info:    Font shape `OML/phv/m/n' in size <10.95> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 283.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 378.
  [4] [5] [6]
 <media/SampleAmazonDB.png, id=25, 1178.90437pt x 855.04443pt>
 File: media/SampleAmazonDB.png Graphic file (type png)
 <use media/SampleAmazonDB.png>
-Package pdftex.def Info: media/SampleAmazonDB.png  used on input line 544.
+Package pdftex.def Info: media/SampleAmazonDB.png  used on input line 639.
 (pdftex.def)             Requested size: 518.71953pt x 376.22072pt.
 
-Overfull \hbox (35.02269pt too wide) in paragraph at lines 544--546
+Overfull \hbox (17.951pt too wide) in paragraph at lines 639--641
 [][]
  []
 
 [7 <./media/SampleAmazonDB.png>] [8] (main.aux) ) 
 Here is how much of TeX's memory you used:
- 2356 strings out of 478659
- 39742 string characters out of 2845920
- 374686 words of memory out of 3000000
- 20444 multiletter control sequences out of 15000+600000
+ 2359 strings out of 478659
+ 39765 string characters out of 2845920
+ 368777 words of memory out of 3000000
+ 20447 multiletter control sequences out of 15000+600000
  418478 words of font info for 52 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,9n,62p,302b,333s stack positions out of 5000i,500n,10000p,200000b,80000s
 {C:/Users/marca/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}<C:/Users/marca/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/marca/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/marca/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/marca/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/marca/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on main.pdf (8 pages, 170352 bytes).
+Output written on main.pdf (8 pages, 172734 bytes).
 PDF statistics:
  57 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
