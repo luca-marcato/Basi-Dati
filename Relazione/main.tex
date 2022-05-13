@@ -293,7 +293,7 @@ Infine per effettuare un \textbf{reso} è necessario specificare:
     %Tipo
     S &
     %Frequenza
-    20000 al giorno \\
+    5000 al giorno \\
     \hline
 
     %Operazione
@@ -317,7 +317,7 @@ Infine per effettuare un \textbf{reso} è necessario specificare:
     %Tipo
     L &
     %Frequenza
-    10000 al giorno \\
+    25000 al giorno \\
     \hline
 
     %Operazione
@@ -325,7 +325,7 @@ Infine per effettuare un \textbf{reso} è necessario specificare:
     %Tipo
     S &
     %Frequenza
-    1000 al mese \\
+    5000 al giorno \\
     \hline
 
     %Operazione
@@ -561,14 +561,14 @@ Infine per effettuare un \textbf{reso} è necessario specificare:
         \hline
         
         %Relazione
-        Prodotti salvati &
+        ProdottiSalvati &
         %Entità coinvolte
         Carrello (0,N)
         Prodotto (1,1) &
         %Descrizione
         Un carrello al suo interno avrà una lista di prodotti che l'utente intende acquistare &
         %Attributi
-        Quantità: INT \textgreater{} 0 \\ 
+        Quantità: INTEGER \textgreater{} 0 \\ 
         \hline
         
         %Relazione
@@ -590,7 +590,7 @@ Infine per effettuare un \textbf{reso} è necessario specificare:
         %Descrizione
         Una carta di credito può essere utilizzata per zero o più ordini, un ordine è sempre associato ad un metodo di pagamento &
         %Attributi
-        Codice transazione: VARCHAR \\ 
+        Codice: VARCHAR \\ 
         \hline
         
         %Relazione
@@ -645,7 +645,7 @@ Infine per effettuare un \textbf{reso} è necessario specificare:
 \subsubsection{Ananlisi delle ridondanze}
 
 L'attributo "\textbf{Importo}" dell'entità Carrello è ridondante in quanto si potrebbe calcolare facendo la somma dei prezzi
-di tutti i prodotti presenti nel carrello e del costo delle loro spedizioni.
+di tutti i prodotti e del costo delle loro spedizioni presenti nel carrello.
 
 \begin{tabularx}{0.98\textwidth} {
         | >{\raggedright\arraybackslash}X |
@@ -655,7 +655,7 @@ di tutti i prodotti presenti nel carrello e del costo delle loro spedizioni.
 
         \hline
         \textbf{Concetto} & \textbf{Tipo} & \textbf{Volume} \\
-        \hline\hline
+        \hline
 
         %Concetto
         Prodotto  &
@@ -684,35 +684,188 @@ di tutti i prodotti presenti nel carrello e del costo delle loro spedizioni.
 \end{tabularx}
 
 \begin{itemize}
-    \item Operazione 1: Aggiungere un nuovo prodotto al carrello (50000 al giorno)
-    \item Operazione 2: Visualizzare l'importo totale del carrello (75000 al giorno)
+    \item Operazione 1: Aggiungere un nuovo prodotto al carrello (10000 al giorno)
+    \item Operazione 2: Visualizzare l'importo totale del carrello (25000 al giorno)
 \end{itemize}
 \textbf{PRESENZA RIDONDANZA}\\
-Operazione 1:\\
-Vengono inseriti in media 500000 / 250000 = 2 prodotti a carrello
+Operazione 1:
 
-\begin{tabularx}{0.98\textwidth} {
-    | >{\raggedright\arraybackslash}X |
-      >{\raggedright\arraybackslash}X |
-      >{\raggedright\arraybackslash}X |
-      >{\raggedright\arraybackslash}X |
-  }
+\newcommand{\noline}[1]{\multicolumn{1}{c}{#1}}
+\newcommand{\myline}{\cline{1-4}}
+\begin{center}
+    \begin{tabularx}{0.98\textwidth} {
+        | >{\raggedright\arraybackslash}X |
+        >{\raggedright\arraybackslash}X |
+        >{\raggedright\arraybackslash}X |
+        >{\raggedright\arraybackslash}X |
+        c                               |
+    }
 
-    \hline
-    \textbf{Concetto} & \textbf{Costrutto} & \textbf{Accessi} & \textbf{Tipo} \\
-    \hline\hline
+        \myline
+        \textbf{Concetto} & \textbf{Costrutto} & \textbf{Accessi} & \textbf{Tipo} \\
+        \myline
 
-    %Concetto
-    ProdottiSalvati &
-    %Costrutto
-    Relazione &
-    %Accessi
-    2 &
-    %Tipo
-    S \\
-    \hline
+        %Concetto
+        ProdottiSalvati &
+        %Costrutto
+        Relazione &
+        %Accessi
+        1 &
+        %Tipo
+        S &
+        %Valore
+        \noline{x 10000} \\
+        \myline
 
-\end{tabularx}
+        %Concetto
+        Prodotto &
+        %Costrutto
+        Entità &
+        %Accessi
+        1 &
+        %Tipo
+        L &
+        %Valore
+        \noline{x 10000} \\
+        \myline
+
+        %Concetto
+        Carrello &
+        %Costrutto
+        Entità &
+        %Accessi
+        1 &
+        %Tipo
+        L &
+        %Valore
+        \noline{x 10000} \\
+        \myline
+
+        %Concetto
+        Carrello &
+        %Costrutto
+        Entità &
+        %Accessi
+        1 &
+        %Tipo
+        S &
+        %Valore
+        \noline{x 10000} \\
+        \myline
+    \end{tabularx}
+\end{center}
+Operazione 2:
+\begin{center}
+    \begin{tabularx}{0.98\textwidth} {
+        | >{\raggedright\arraybackslash}X |
+        >{\raggedright\arraybackslash}X |
+        >{\raggedright\arraybackslash}X |
+        >{\raggedright\arraybackslash}X |
+        c                               |
+    }
+
+        \myline
+        \textbf{Concetto} & \textbf{Costrutto} & \textbf{Accessi} & \textbf{Tipo} \\
+        \myline
+
+        %Concetto
+        Carrello &
+        %Costrutto
+        Entità &
+        %Accessi
+        1 &
+        %Tipo
+        L &
+        %Valore
+        \noline{x 25000} \\
+        \myline
+    \end{tabularx}
+\end{center}
+Perciò tenendo conto del fatto che le operazioni di scrittura valgono il doppio rispetto a quelle di lettura.\\
+COSTO TOTALE: 10000*2 + 10000 + 10000 + 10000*2 + 25000 = 85000 (85K)\\\\
+\textbf{ASSENZA RIDONDANZA}
+
+\begin{center}
+    \begin{tabularx}{0.98\textwidth} {
+        | >{\raggedright\arraybackslash}X |
+        >{\raggedright\arraybackslash}X |
+        >{\raggedright\arraybackslash}X |
+        >{\raggedright\arraybackslash}X |
+        c                               |
+    }
+
+        \myline
+        \textbf{Concetto} & \textbf{Costrutto} & \textbf{Accessi} & \textbf{Tipo} \\
+        \myline
+
+        %Concetto
+        ProdottiSalvati &
+        %Costrutto
+        Relazione &
+        %Accessi
+        1 &
+        %Tipo
+        S &
+        %Valore
+        \noline{x 10000} \\
+        \myline
+    \end{tabularx}
+\end{center}
+Operazione 2:\\
+Sono presenti in media 500000 / 250000 = 2 prodotti a carrello
+\begin{center}
+    \begin{tabularx}{0.98\textwidth} {
+        | >{\raggedright\arraybackslash}X |
+        >{\raggedright\arraybackslash}X |
+        >{\raggedright\arraybackslash}X |
+        >{\raggedright\arraybackslash}X |
+        c                               |
+    }
+
+        \myline
+        \textbf{Concetto} & \textbf{Costrutto} & \textbf{Accessi} & \textbf{Tipo} \\
+        \myline
+
+        %Concetto
+        Carrello &
+        %Costrutto
+        Entità &
+        %Accessi
+        1 &
+        %Tipo
+        L &
+        %Valore
+        \noline{x 25000} \\
+        \myline
+
+        %Concetto
+        ProdottiSalvati &
+        %Costrutto
+        Relazione &
+        %Accessi
+        2 &
+        %Tipo
+        L &
+        %Valore
+        \noline{x 25000} \\
+        \myline
+
+        %Concetto
+        Prodotto &
+        %Costrutto
+        Entità &
+        %Accessi
+        2 &
+        %Tipo
+        L &
+        %Valore
+        \noline{x 25000} \\
+        \myline
+    \end{tabularx}
+\end{center}
+COSTO TOTALE: 10000*2 + 10000 + 25000*2 + 25000*2 = 130000 (130K)\\\\
+Dall'analisi eseguita risulta quindi che la presenza dell'attributo importo può risparmiare quotidianamente
+il costo computazionale di (130K - 85K) = 45K operazioni perciò verrà mantenuto.
 
 \subsubsection{Eliminazione delle generalizzazioni}
 
