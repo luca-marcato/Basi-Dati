@@ -99,7 +99,6 @@ Ogni \textbf{ordine} deve memorizzare le informazioni riguardo:
     \item Carrello (Utente e Prodotti ordinati)
     \item Metodo di pagamento utilizzato
     \item Data e ora di acquisto
-    \item Importo pagato
     \item Indirizzo di consegna
     \item Preferenze di spedizione (opzionale)
 \end{itemize}
@@ -135,7 +134,7 @@ Infine per effettuare un \textbf{reso} è necessario specificare:
 \begin{center}
     
     \begin{tabularx}{0.99\textwidth} {
-        | >{\raggedright\arraybackslash}>{\hsize=.3\hsize}X |
+        | >{\raggedright\arraybackslash}>{\hsize=.4\hsize}X |
           >{\raggedright\arraybackslash}                  X |
           >{\raggedright\arraybackslash}>{\hsize=.5\hsize}X |
     }
@@ -186,9 +185,9 @@ Infine per effettuare un \textbf{reso} è necessario specificare:
         %Termine
         Importo &
         %Descrizione
-        Costo totale relativo ad un ordine. Ogni prodotto comprende anche i costi di spedizione &
+        Costo totale dei prodotti salvati nel carrello. Ogni prodotto comprende anche i costi di spedizione &
         %Collegamenti
-        Attributo di Ordine \\ 
+        Attributo di Carrello \\ 
         \hline
 
         %Termine
@@ -383,6 +382,7 @@ Infine per effettuare un \textbf{reso} è necessario specificare:
     \begin{itemize}
         \item \underline{Id}: integer PRIMARY KEY
         \item \underline{Utente}: varchar(100) PRIMARY KEY
+        \item Importo: decimal, (\textgreater{}= 0)
     \end{itemize}
     \item Prodotto
     \begin{itemize}
@@ -420,11 +420,9 @@ Infine per effettuare un \textbf{reso} è necessario specificare:
     \end{itemize}
     \item Ordine
     \begin{itemize}
-        \item \underline{Id}: integer PRIMARY KEY
         \item \underline{Carrello}: integer PRIMARY KEY
         \item \underline{Utente}: varchar(100) PRIMARY KEY
         \item DataAcquisto: timestamp
-        \item Importo: decimal
         \item PreferenzeSpedizione: varchar(500) può essere NULL
     \end{itemize}
     \item Spedizione:
@@ -644,9 +642,77 @@ Infine per effettuare un \textbf{reso} è necessario specificare:
 
 \subsection{Ristrutturazione}
 
-\subsubsection{Ananlisi delle rindondanze}
+\subsubsection{Ananlisi delle ridondanze}
 
-\dots
+L'attributo "\textbf{Importo}" dell'entità Carrello è ridondante in quanto si potrebbe calcolare facendo la somma dei prezzi
+di tutti i prodotti presenti nel carrello e del costo delle loro spedizioni.
+
+\begin{tabularx}{0.98\textwidth} {
+        | >{\raggedright\arraybackslash}X |
+          >{\raggedright\arraybackslash}X |
+          >{\raggedright\arraybackslash}X |
+      }
+
+        \hline
+        \textbf{Concetto} & \textbf{Tipo} & \textbf{Volume} \\
+        \hline\hline
+
+        %Concetto
+        Prodotto  &
+        %Tipo
+        Entità &
+        %Volume
+        2000000 (2M) \\
+        \hline
+
+        %Concetto
+        Carrello  &
+        %Tipo
+        Entità &
+        %Volume
+        250000 (250K) \\
+        \hline
+
+        %Concetto
+        ProdottiSalvati  &
+        %Tipo
+        Relazione &
+        %Volume
+        500000 (500K) \\
+        \hline
+    
+\end{tabularx}
+
+\begin{itemize}
+    \item Operazione 1: Aggiungere un nuovo prodotto al carrello (50000 al giorno)
+    \item Operazione 2: Visualizzare l'importo totale del carrello (75000 al giorno)
+\end{itemize}
+\textbf{PRESENZA RIDONDANZA}\\
+Operazione 1:\\
+Vengono inseriti in media 500000 / 250000 = 2 prodotti a carrello
+
+\begin{tabularx}{0.98\textwidth} {
+    | >{\raggedright\arraybackslash}X |
+      >{\raggedright\arraybackslash}X |
+      >{\raggedright\arraybackslash}X |
+      >{\raggedright\arraybackslash}X |
+  }
+
+    \hline
+    \textbf{Concetto} & \textbf{Costrutto} & \textbf{Accessi} & \textbf{Tipo} \\
+    \hline\hline
+
+    %Concetto
+    ProdottiSalvati &
+    %Costrutto
+    Relazione &
+    %Accessi
+    2 &
+    %Tipo
+    S \\
+    \hline
+
+\end{tabularx}
 
 \subsubsection{Eliminazione delle generalizzazioni}
 
@@ -663,15 +729,18 @@ Infine per effettuare un \textbf{reso} è necessario specificare:
         %Generalizzazione
         Utente \textless{}--- Prime &
         %Risoluzione
-        L'entità Prime viene accorpata in Utente, \\
+        L'entità Prime viene accorpata in Utente, per distinguere un utente standard da uno prime non viene aggiunto
+        alcun attributo. Gli attributi Abbonamento, DataIscrizione e DataScadenza diventano perciò opzionali e 
+        assumeranno valore NULL per tutti gli utenti che non si sono mai abbonati. Gli utenti prime con un abbonamento
+        scaduto verranno considerati come degli utenti standard  \\
         \hline
 
         %Generalizzazione
         PuntoDiConsegna \textless{}--- Residenza, PuntoDiRitiro &
         %Risoluzione
         Le entità Residenza e PuntoDiRitiro ereditano l'attributo composto Indirizzo da PuntoDiConsegna.
-        Perciò si rimuove l'entità padre e vengono create due nuove relazioni di Trasporto tra Ordine con
-        Residenza e PuntoDiRitiro  \\
+        Perciò si rimuove l'entità padre e vengono create due nuove relazioni di Trasporto tra Ordine (0,1) 
+        - Residenza (0,N) e Ordine (0,1) - PuntoDiRitiro (0,N)  \\
         \hline
 
     \end{tabularx}
@@ -679,7 +748,23 @@ Infine per effettuare un \textbf{reso} è necessario specificare:
 
 \subsubsection{Scelta degli identificatori primari}
 
-\dots
+Per l'entità Carrello è stato deciso di utilizzare come chiave primaria un attributo composto formato da:
+\begin{itemize}
+    \item L'attributo Utente, che è anche chiave esterna della relazione Carrello - Utente.
+    \item L'attributo Id.
+\end{itemize}
+Perciò attraverso l'identificatore primario ogni volta che un utente acquista il proprio carrello sarà
+possibile risalire ai prodotti di quell'ordine e ad ogni acquisto effettuato verrà aggiornato il valore di Id per 
+creare un nuovo carrello vuoto.
+
+\begin{center}
+    \textbf{Schema E-R ristrutturato}
+\end{center}
+
+\begin{figure}[H]
+    \includegraphics[scale=0.44]{media/ER risolto.png}
+    \label{Schema E-R risolto}
+\end{figure}
 
 \subsection{Crezione delle tabelle}
 

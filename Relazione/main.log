@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 21.12.10) (preloaded format=pdflatex 2022.1.22)  11 MAY 2022 20:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 21.12.10) (preloaded format=pdflatex 2022.1.22)  13 MAY 2022 15:44
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -204,42 +204,48 @@ LaTeX Font Info:    Trying to load font information for TS1+phv on input line 58
 File: ts1phv.fd 2020/03/25 scalable font definitions for TS1/phv.
 ) [1
 
-{C:/Users/marca/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] [2]
-Overfull \hbox (14.81273pt too wide) in paragraph at lines 258--258
-[]|\OT1/phv/m/n/10.95 PuntoDiConsegna|  
- []
-
-[3]
-LaTeX Font Info:    Trying to load font information for OML+phv on input line 378.
+{C:/Users/marca/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] [2] [3]
+LaTeX Font Info:    Trying to load font information for OML+phv on input line 377.
  (C:\Users\marca\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\omlphv.fd
 File: omlphv.fd 
 )
 LaTeX Font Info:    Font shape `OML/phv/m/n' in size <10.95> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 378.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 377.
  [4] [5] [6]
 <media/SampleAmazonDB.png, id=25, 1178.90437pt x 855.04443pt>
 File: media/SampleAmazonDB.png Graphic file (type png)
 <use media/SampleAmazonDB.png>
-Package pdftex.def Info: media/SampleAmazonDB.png  used on input line 639.
+Package pdftex.def Info: media/SampleAmazonDB.png  used on input line 637.
 (pdftex.def)             Requested size: 518.71953pt x 376.22072pt.
 
-Overfull \hbox (17.951pt too wide) in paragraph at lines 639--641
+Overfull \hbox (17.951pt too wide) in paragraph at lines 637--639
 [][]
  []
 
-[7 <./media/SampleAmazonDB.png>] [8] (main.aux) ) 
+[7 <./media/SampleAmazonDB.png>]
+<media/ER risolto.png, id=31, 1161.74025pt x 820.71619pt>
+File: media/ER risolto.png Graphic file (type png)
+<use media/ER risolto.png>
+Package pdftex.def Info: media/ER risolto.png  used on input line 765.
+(pdftex.def)             Requested size: 511.16728pt x 361.11624pt.
+
+Overfull \hbox (10.39876pt too wide) in paragraph at lines 765--767
+[][]
+ []
+
+[8] [9 <./media/ER risolto.png>] (main.aux) ) 
 Here is how much of TeX's memory you used:
- 2359 strings out of 478659
- 39765 string characters out of 2845920
- 368777 words of memory out of 3000000
- 20447 multiletter control sequences out of 15000+600000
+ 2369 strings out of 478659
+ 39961 string characters out of 2845920
+ 369905 words of memory out of 3000000
+ 20456 multiletter control sequences out of 15000+600000
  418478 words of font info for 52 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,9n,62p,302b,333s stack positions out of 5000i,500n,10000p,200000b,80000s
 {C:/Users/marca/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}<C:/Users/marca/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/marca/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/marca/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/marca/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/marca/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on main.pdf (8 pages, 172734 bytes).
+Output written on main.pdf (9 pages, 289817 bytes).
 PDF statistics:
- 57 PDF objects out of 1000 (max. 8388607)
+ 61 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
