@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 21.12.10) (preloaded format=pdflatex 2022.1.22)  13 MAY 2022 21:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 21.12.10) (preloaded format=pdflatex 2022.1.22)  17 MAY 2022 21:34
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -147,14 +147,14 @@ LaTeX Font Info:    ... okay on input line 25.
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
 * h-part:(L,W,R)=(48.36967pt, 500.76852pt, 48.36967pt)
-* v-part:(T,H,B)=(56.9055pt, 731.23582pt, 56.90552pt)
+* v-part:(T,H,B)=(48.36967pt, 731.23582pt, 65.44135pt)
 * \paperwidth=597.50787pt
 * \paperheight=845.04684pt
 * \textwidth=500.76852pt
 * \textheight=731.23582pt
 * \oddsidemargin=-23.90031pt
 * \evensidemargin=-23.90031pt
-* \topmargin=-52.36449pt
+* \topmargin=-60.90031pt
 * \headheight=12.0pt
 * \headsep=25.0pt
 * \topskip=11.0pt
@@ -233,29 +233,119 @@ Underfull \hbox (badness 10000) in paragraph at lines 866--869
  []
 
 [8]
-<media/ER risolto.png, id=34, 1161.74025pt x 820.71619pt>
+Underfull \hbox (badness 10000) in paragraph at lines 909--916
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 909--916
+
+ []
+
+<media/ER risolto.png, id=34, 1082.24326pt x 944.93025pt>
 File: media/ER risolto.png Graphic file (type png)
 <use media/ER risolto.png>
-Package pdftex.def Info: media/ER risolto.png  used on input line 918.
-(pdftex.def)             Requested size: 511.16728pt x 361.11624pt.
+Package pdftex.def Info: media/ER risolto.png  used on input line 979.
+(pdftex.def)             Requested size: 519.47087pt x 453.56137pt.
 
-Overfull \hbox (10.39876pt too wide) in paragraph at lines 918--920
+Overfull \hbox (18.70235pt too wide) in paragraph at lines 979--981
 [][]
  []
 
-[9] [10 <./media/ER risolto.png>] (main.aux) ) 
+[9]
+LaTeX Info: Symbol \textrightarrow not provided by
+            font family phv in TS1 encoding.
+            Default family used instead on input line 985.
+LaTeX Font Info:    Trying to load font information for TS1+cmss on input line 985.
+ (C:\Users\marca\AppData\Local\Programs\MiKTeX\tex/latex/base\ts1cmss.fd
+File: ts1cmss.fd 2019/12/16 v2.5j Standard LaTeX font definitions
+)
+LaTeX Info: Symbol \textrightarrow not provided by
+            font family phv in TS1 encoding.
+            Default family used instead on input line 987.
+LaTeX Info: Symbol \textrightarrow not provided by
+            font family phv in TS1 encoding.
+            Default family used instead on input line 987.
+LaTeX Info: Symbol \textrightarrow not provided by
+            font family phv in TS1 encoding.
+            Default family used instead on input line 989.
+LaTeX Info: Symbol \textrightarrow not provided by
+            font family phv in TS1 encoding.
+            Default family used instead on input line 990.
+LaTeX Info: Symbol \textrightarrow not provided by
+            font family phv in TS1 encoding.
+            Default family used instead on input line 990.
+LaTeX Info: Symbol \textrightarrow not provided by
+            font family phv in TS1 encoding.
+            Default family used instead on input line 990.
+LaTeX Info: Symbol \textrightarrow not provided by
+            font family phv in TS1 encoding.
+            Default family used instead on input line 990.
+LaTeX Info: Symbol \textrightarrow not provided by
+            font family phv in TS1 encoding.
+            Default family used instead on input line 991.
+LaTeX Info: Symbol \textrightarrow not provided by
+            font family phv in TS1 encoding.
+            Default family used instead on input line 991.
+LaTeX Info: Symbol \textrightarrow not provided by
+            font family phv in TS1 encoding.
+            Default family used instead on input line 991.
+LaTeX Info: Symbol \textrightarrow not provided by
+            font family phv in TS1 encoding.
+            Default family used instead on input line 993.
+LaTeX Info: Symbol \textrightarrow not provided by
+            font family phv in TS1 encoding.
+            Default family used instead on input line 993.
+LaTeX Info: Symbol \textrightarrow not provided by
+            font family phv in TS1 encoding.
+            Default family used instead on input line 993.
+LaTeX Info: Symbol \textrightarrow not provided by
+            font family phv in TS1 encoding.
+            Default family used instead on input line 993.
+LaTeX Info: Symbol \textrightarrow not provided by
+            font family phv in TS1 encoding.
+            Default family used instead on input line 993.
+LaTeX Info: Symbol \textrightarrow not provided by
+            font family phv in TS1 encoding.
+            Default family used instead on input line 993.
+LaTeX Info: Symbol \textrightarrow not provided by
+            font family phv in TS1 encoding.
+            Default family used instead on input line 994.
+LaTeX Info: Symbol \textrightarrow not provided by
+            font family phv in TS1 encoding.
+            Default family used instead on input line 995.
+LaTeX Info: Symbol \textrightarrow not provided by
+            font family phv in TS1 encoding.
+            Default family used instead on input line 996.
+LaTeX Info: Symbol \textrightarrow not provided by
+            font family phv in TS1 encoding.
+            Default family used instead on input line 997.
+LaTeX Info: Symbol \textrightarrow not provided by
+            font family phv in TS1 encoding.
+            Default family used instead on input line 998.
+
+Overfull \hbox (5.29526pt too wide) in paragraph at lines 985--999
+\OT1/phv/b/n/10.95 Ordine\OT1/phv/m/n/10.95 ($[]$\TS1/cmss/m/n/10.95 \OT1/phv/m/n/10.95 Carrello.Id, $[]$\TS1/cmss/m/n/10.95 \OT1/phv/m/n/10.95 Carrello.Utente, Car-taDi-Cred-ito\TS1/cmss/m/n/10.95 \OT1/phv/m/n/10.95 CartaDiCredito.Numero, Codice-
+ []
+
+
+Overfull \hbox (7.53621pt too wide) in paragraph at lines 985--999
+\OT1/phv/m/n/10.95 Transazione, Pref-eren-ze-S-pedi-zione, In-foS-pedi-zione\TS1/cmss/m/n/10.95 \OT1/phv/m/n/10.95 Spedizione.codice, Res-i-denza\TS1/cmss/m/n/10.95 \OT1/phv/m/n/10.95 Residenza.id, Pun-
+ []
+
+[10 <./media/ER risolto.png>] [11] (main.aux) ) 
 Here is how much of TeX's memory you used:
- 2374 strings out of 478659
- 39991 string characters out of 2845920
- 370163 words of memory out of 3000000
- 20461 multiletter control sequences out of 15000+600000
- 418478 words of font info for 52 fonts, out of 8000000 for 9000
+ 2397 strings out of 478659
+ 40663 string characters out of 2845920
+ 370232 words of memory out of 3000000
+ 20479 multiletter control sequences out of 15000+600000
+ 419128 words of font info for 54 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,9n,62p,302b,333s stack positions out of 5000i,500n,10000p,200000b,80000s
-{C:/Users/marca/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}<C:/Users/marca/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/marca/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/marca/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/marca/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/marca/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on main.pdf (10 pages, 291744 bytes).
+ 55i,9n,62p,405b,333s stack positions out of 5000i,500n,10000p,200000b,80000s
+ <C:\Users\marca\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcss1095.pk>{C:/Users/marca/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}<C:/Users/marca/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/marca/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/marca/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/marca/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/marca/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvro8a.pfb>
+Output written on main.pdf (11 pages, 299222 bytes).
 PDF statistics:
- 64 PDF objects out of 1000 (max. 8388607)
+ 72 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -11,7 +11,7 @@
    total={160mm,257mm},
    left=17mm,
    right=17mm,
-   top=20mm,
+   top=17mm,
 }
 
 % tabelle
@@ -223,7 +223,7 @@ Infine per effettuare un \textbf{reso} è necessario specificare:
         \hline
 
         %Termine
-        Codice &
+        Codice spedizione &
         %Descrizione
         Codice univoco dal quale è possibile ottenere le date di spedizione del proprio ordine &
         %Collegamenti
@@ -865,7 +865,7 @@ Sono presenti in media 500000 / 250000 = 2 prodotti a carrello
 \end{center}
 COSTO TOTALE: 10000*2 + 10000 + 25000*2 + 25000*2 = 130000 (130K)\\\\
 Dall'analisi eseguita risulta quindi che la presenza dell'attributo importo può risparmiare quotidianamente
-il costo computazionale di (130K - 85K) = 45K operazioni perciò verrà mantenuto.
+il costo computazionale di (130K - 85K) = 45K operazioni, perciò verrà mantenuto.
 
 \subsubsection{Eliminazione delle generalizzazioni}
 
@@ -908,17 +908,111 @@ Per l'entità Carrello è stato deciso di utilizzare come chiave primaria un att
 \end{itemize}
 Perciò attraverso l'identificatore primario ogni volta che un utente acquista il proprio carrello sarà
 possibile risalire ai prodotti di quell'ordine e ad ogni acquisto effettuato verrà aggiornato il valore di Id per 
-creare un nuovo carrello vuoto.
+creare un nuovo carrello vuoto.\\\\
+Durante la fase di progettazione logica si è notato che le entità Utente, Reso e Ordine per poter far riferimento 
+ad uno specifico indirizzo dovevano aggiungere quattro nuovi attributi (NumeroCivico, Via, Citta, CAP) aumentando
+la ridondanza e rendendo più difficile l'aggiornamento delle tabelle.\\\\
+Si è deciso perciò di creare una nuova entità \textbf{Indirizzo}:
+\begin{itemize}
+    \item[-] \underline{Id}: Integer PRIMARY KEY
+    \item[-] Via: varchar(100)
+    \item[-] NumeroCivico: varchar(10)
+    \item[-] Citta: varchar(100)
+    \item[-] CAP: varchar(5)
+\end{itemize}
+Dotata delle seguenti relazioni
+
+\begin{center}
+    \begin{tabularx}{0.98\textwidth} {
+        | >{\raggedright\arraybackslash}>{\hsize=.4\hsize}X |
+          >{\raggedright\arraybackslash}>{\hsize=.5\hsize}X |
+          >{\raggedright\arraybackslash}                  X |
+          >{\raggedright\arraybackslash}>{\hsize=.4\hsize}X |
+        }
+
+        \hline
+        \textbf{Relazione} & \textbf{Entità coinvolte} & \textbf{Descrizione} & \textbf{Attributi} \\
+        \hline\hline
+
+        %Relazione
+        Località &
+        %Entità Coinvolte
+        Indirizzo(1,1)
+        Residenza(1,1) &
+        %Descrizione
+        L'indirizzo di consegna che la identifica &
+        %Attributi
+        Nessuno \\
+        \hline
+
+        %Relazione
+        Località &
+        %Entità Coinvolte
+        Indirizzo(1,1)
+        PuntoDiRitiro(1,1) &
+        %Descrizione
+        L'indirizzo di consegna che la identifica &
+        %Attributi
+        Nessuno \\
+        \hline
+
+        %Relazione
+        Località &
+        %Entità Coinvolte
+        Indirizzo(1,1)
+        Stabilimento(1,1) &
+        %Descrizione
+        L'indirizzo di consegna che la identifica &
+        %Attributi
+        Nessuno \\
+        \hline
+
+    \end{tabularx}
+\end{center}
+Le entità Stabilimento, PuntoDiRitiro e Residenza avranno come chiave primaria l'Id al loro indirizzo.
 
 \begin{center}
     \textbf{Schema E-R ristrutturato}
 \end{center}
 
 \begin{figure}[H]
-    \includegraphics[scale=0.44]{media/ER risolto.png}
+    \includegraphics[scale=0.48]{media/ER risolto.png}
     \label{Schema E-R risolto}
 \end{figure}
 
-\subsection{Crezione delle tabelle}
+\subsection{Crezione delle tabelle} 
+
+(A→B indica che B è chiave esterna di A)\\
+\textbf{Indirizzo}(\underline{Id}, Via, NumeroCivico, Città, CAP)\\
+\textbf{Stabilimento}(\underline{Id}→Indirizzo.Id, Stato, Fornitore→Fornitore.PIVA)\\
+\textbf{Fornitore}(\underline{PIVA}, Nome, NumeroTelefono, email)\\
+\textbf{Prodotto}(\underline{Codice}, Nome, Prezzo, Prime, CostoSpedizione, Descrizione, Peso, QuantitaDisponibile, Fornitore→Fornitore.PIVA)\\
+\textbf{Reso}(\underline{Prodotto}→Prodotto.Codice, \underline{Ordine}→Ordine.Carrello, \underline{Utente}→Ordine.Utente, Motivazione, Indirizzo→Stabilimento.Id)\\
+\textbf{ProdottiSalvati}(\underline{Prodotto}→Prodotto.Codice, \underline{Carrello}→Carrello.Id, \underline{Utente}→Carrello.Utente, Quantita')\\
+\textbf{Spedizione}(\underline{Codice}, DataPartenza, DataArrivo, DataEffettiva)\\
+\textbf{Ordine}(\underline{Carrello}→Carrello.Id, \underline{Utente}→Carrello.Utente, CartaDiCredito→CartaDiCredito.Numero, CodiceTransazione, PreferenzeSpedizione, InfoSpedizione→Spedizione.codice, Residenza→Residenza.id, PuntoDiRitiro→PuntoDiRitiro.id)\\
+\textbf{Carrello}(\underline{Id}, \underline{Utente}→Utente.Email, Importo)\\
+\textbf{Utente}(\underline{Email}, Nome, Cognome, NumeroTelefono, Abbonamento, DataIscrizione, DataScadenza, Residenza→Residenza)\\
+\textbf{CartaDiCredito}(\underline{Numero}, Circuito, Scadenza, CVV, Intestatario, Utente→Utente.Email)\\
+\textbf{Residenza}(\underline{Id}→Indirizzo.Id)\\
+\textbf{PuntoDiRitiro}(\underline{Id}→Indirizzo.Id, OrarioApertura, OrarioChiusura)
+
+\section{Query e indici}
+
+\subsection{Query}
+
+\dots
+
+\subsection{Indici}
+
+\dots
+
+\section{Codice C++}
+
+\subsection{Descrizione dell'utilizzo del codice}
+
+\dots
+
+\subsection{Documentazione codice}
 
 \end{document}
