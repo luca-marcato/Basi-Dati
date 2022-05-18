@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 21.12.10) (preloaded format=pdflatex 2022.1.22)  17 MAY 2022 21:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 21.12.10) (preloaded format=pdflatex 2022.1.22)  18 MAY 2022 14:19
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -324,13 +324,13 @@ LaTeX Info: Symbol \textrightarrow not provided by
             font family phv in TS1 encoding.
             Default family used instead on input line 998.
 
-Overfull \hbox (5.29526pt too wide) in paragraph at lines 985--999
-\OT1/phv/b/n/10.95 Ordine\OT1/phv/m/n/10.95 ($[]$\TS1/cmss/m/n/10.95 \OT1/phv/m/n/10.95 Carrello.Id, $[]$\TS1/cmss/m/n/10.95 \OT1/phv/m/n/10.95 Carrello.Utente, Car-taDi-Cred-ito\TS1/cmss/m/n/10.95 \OT1/phv/m/n/10.95 CartaDiCredito.Numero, Codice-
+Overfull \hbox (106.32088pt too wide) in paragraph at lines 985--999
+\OT1/phv/b/n/10.95 Ordine\OT1/phv/m/n/10.95 ($[]$\TS1/cmss/m/n/10.95 \OT1/phv/m/n/10.95 Carrello.Id, $[]$\TS1/cmss/m/n/10.95 \OT1/phv/m/n/10.95 Carrello.Utente, Data, Pref-eren-ze-S-pedi-zione, Car-taDi-Cred-ito\TS1/cmss/m/n/10.95 \OT1/phv/m/n/10.95 CartaDiCredito.Numero,
  []
 
 
-Overfull \hbox (7.53621pt too wide) in paragraph at lines 985--999
-\OT1/phv/m/n/10.95 Transazione, Pref-eren-ze-S-pedi-zione, In-foS-pedi-zione\TS1/cmss/m/n/10.95 \OT1/phv/m/n/10.95 Spedizione.codice, Res-i-denza\TS1/cmss/m/n/10.95 \OT1/phv/m/n/10.95 Residenza.id, Pun-
+Overfull \hbox (60.54889pt too wide) in paragraph at lines 985--999
+\OT1/phv/m/n/10.95 Codice-Transazione, In-foS-pedi-zione\TS1/cmss/m/n/10.95 \OT1/phv/m/n/10.95 Spedizione.codice, Res-i-denza\TS1/cmss/m/n/10.95 \OT1/phv/m/n/10.95 Residenza.id, Pun-toDiRi-tiro\TS1/cmss/m/n/10.95 \OT1/phv/m/n/10.95 PuntoDiRitiro.id) 
  []
 
 [10 <./media/ER risolto.png>] [11] (main.aux) ) 
@@ -341,9 +341,9 @@ Here is how much of TeX's memory you used:
  20479 multiletter control sequences out of 15000+600000
  419128 words of font info for 54 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,9n,62p,405b,333s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,9n,62p,411b,333s stack positions out of 5000i,500n,10000p,200000b,80000s
  <C:\Users\marca\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcss1095.pk>{C:/Users/marca/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}<C:/Users/marca/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/marca/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/marca/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/marca/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/marca/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on main.pdf (11 pages, 299222 bytes).
+Output written on main.pdf (11 pages, 299213 bytes).
 PDF statistics:
  72 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
