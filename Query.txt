@@ -1,7 +1,8 @@
-1. Il numero di resi per ogni prodotto, ordinati in maniera decresente.
+1. I prodotti con più di 1000 resi.
 1(bis). Gli utenti con il maggior numero di resi, ordinati in maniera decresente.
-2. I fornitori che emettono il maggior numero di prodotti prime.
-3. Gli utenti che hanno acquistato almeno un prodotto che è stato prodotto all'estero.
+2. Le informazioni dei fornitori che emettono il maggior numero di prodotti prime.
+3. Gli utenti che hanno acquistato almeno un prodotto realizzato da un fornitore che possiede almeno
+uno stabilimento all'estero.
 4. Qual è il circuito della carta di credito maggiormente utilizzato per effettuare acquisti.
-5. Mostrare i primi dieci utenti che hanno speso di più.
+5. Mostrare gli utenti che hanno effettuato una spesa totale maggiore di 5000(5K) euro.
 6. 
