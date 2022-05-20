@@ -2,7 +2,7 @@
 SELECT Prodotto.Nome, Prodotto.Prezzo, Prodotto.Descrizione, Prodtto.Prime
 FROM Prodotto JOIN 
 (
-SELECT Prodotto as Codice, SUM(*) as NumeroResi
+SELECT Prodotto as Codice, COUNT(*) as NumeroResi
 FROM Reso
 GROUP BY Prodotto
 HAVING NumeroResi >= 1000
@@ -13,7 +13,7 @@ ON Prodotto.Codice = ProdottoReso.Codice
 SELECT Nome, NumeroTelefono, Email, ProdottiPrime
 FROM Fornitore JOIN
 (
-    SELECT Fornitore as PIVA, SUM(*) as ProdottiPrime
+    SELECT Fornitore as PIVA, COUNT(*) as ProdottiPrime
     FROM Prodotto
     WHERE Prime = TRUE
     GROUP BY PIVA
