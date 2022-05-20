@@ -3,6 +3,7 @@
 2. Le informazioni dei fornitori che emettono il maggior numero di prodotti prime.
 3. Gli utenti che hanno acquistato almeno un prodotto realizzato da un fornitore che possiede almeno
 uno stabilimento all'estero.
-4. Qual è il circuito della carta di credito maggiormente utilizzato per effettuare acquisti.
-5. Mostrare gli utenti che hanno effettuato una spesa totale maggiore di 5000(5K) euro.
-6. 
+4. Le date e gli ordini delle ultime 5 spedizioni effettuate all'indirizzo 
+"Via Trieste, 63, 35131, Padova".
+5. Selezionare l'email, il tipo di abbonamento e la carta di credito più usata
+degli utenti che hanno una spesa totale maggiore di 5000(5K) euro.

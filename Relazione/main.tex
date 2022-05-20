@@ -25,14 +25,14 @@
 \begin{document}
 
 \begin{center}
-    \huge\textbf{Title DB}
+    \huge\textbf{ItaliExpress DB}
 \end{center}
 
 \section{Abstract}
 
-\textit{\{nome-sito\}} è un azienda italiana che vuole aprire la propria attività di mercato online
+\textit{ItaliExpress} è un azienda italiana che vuole aprire la propria attività di mercato online
 sul territorio nazionale e come tale necessità di un database per la gestione delle sue risorse.\\
-Grazie a \textit{\{nome-sito\}} sarà possibile fare acquisti tra una vasta serie di prodotti 
+Grazie a \textit{ItaliExpress} sarà possibile fare acquisti tra una vasta serie di prodotti 
 senza doversi recare in negozio, potendo scegliere se ricevere la consegna direttamente a casa
 propria oppure specificando durante l'acquisto il punto di ritiro che si preferisce,
 per poi andarlo a ritirare personalmente.\\
@@ -40,11 +40,11 @@ Ogni utente che desidera fare degli acquisti dovrà registrarsi attraverso la pr
 aggiungendo i propri dati personali e i metodi di pagamento direttamente nel sito.
 Inoltre per chi lo desidera ci si potrà abbonare all'offerta "Prime" per evitare i costi di spedizione
 su tutti i prodotti certificati Prime e per poter ricevere le propire consegne in brevissimo tempo.
-In più verrà fornito l'accesso ad altri servizi esclusivi \textit{\{nome-sito\}}.\\
+In più verrà fornito l'accesso ad altri servizi esclusivi \textit{ItaliExpress}.\\
 Visualizzando i propri acquisti sarà possibile conoscere la data di presa in carico della spedizione
 e quella di arrivo al punto di consegna. In caso di necessità sarà anche possibile specificare alcune preferenze
 di spedizione, in segutio all'avvenuta operazione di acquisto dei propri prodotti.\\
-\textit{\{nome-sito\}} assicura ai propri clienti che i fornitori siano accertati mettendo a disposizione
+\textit{ItaliExpress} assicura ai propri clienti che i fornitori siano accertati mettendo a disposizione
 la località di produzione ed un recapito telefonico.\\
 In caso di guasto o per via di una determinata motivazione specificata dall'utente sarà
 possibile effettuare il reso dei prodotti acquistati avendo la garanzia di rimborso della spesa. 
@@ -992,7 +992,7 @@ Le entità Stabilimento, PuntoDiRitiro e Residenza avranno come chiave primaria 
 \textbf{Spedizione}(\underline{Codice}, DataPartenza, DataArrivo, DataEffettiva)\\
 \textbf{Ordine}(\underline{Carrello} → Carrello.Id, \underline{Utente} → Carrello.Utente, Data, PreferenzeSpedizione, CartaDiCredito → CartaDiCredito.Numero, CodiceTransazione, InfoSpedizione → Spedizione.codice, Residenza → Residenza.id, PuntoDiRitiro → PuntoDiRitiro.id)\\
 \textbf{Carrello}(\underline{Id}, \underline{Utente} → Utente.Email, Importo)\\
-\textbf{Utente}(\underline{Email}, Nome, Cognome, NumeroTelefono, Abbonamento, DataIscrizione, DataScadenza, Residenza → Residenza)\\
+\textbf{Utente}(\underline{Email}, Password, Nome, Cognome, NumeroTelefono, Abbonamento, DataIscrizione, DataScadenza, Residenza → Residenza)\\
 \textbf{CartaDiCredito}(\underline{Numero}, Circuito, Scadenza, CVV, Intestatario, Utente → Utente.Email)\\
 \textbf{Residenza}(\underline{Id} → Indirizzo.Id)\\
 \textbf{PuntoDiRitiro}(\underline{Id} → Indirizzo.Id, OrarioApertura, OrarioChiusura)
