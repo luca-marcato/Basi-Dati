@@ -990,7 +990,7 @@ Le entità Stabilimento, PuntoDiRitiro e Residenza avranno come chiave primaria 
 \textbf{Reso}(\underline{Prodotto} → Prodotto.Codice, \underline{Ordine} → Ordine.Carrello, \underline{Utente} → Ordine.Utente, Motivazione, Indirizzo → Stabilimento.Id)\\
 \textbf{ProdottiSalvati}(\underline{Prodotto} → Prodotto.Codice, \underline{Carrello} → Carrello.Id, \underline{Utente} → Carrello.Utente, Quantita')\\
 \textbf{Spedizione}(\underline{Codice}, DataPartenza, DataArrivo, DataEffettiva)\\
-\textbf{Ordine}(\underline{Carrello} → Carrello.Id, \underline{Utente} → Carrello.Utente, Data, PreferenzeSpedizione, CartaDiCredito → CartaDiCredito.Numero, CodiceTransazione, InfoSpedizione → Spedizione.codice, Residenza → Residenza.id, PuntoDiRitiro → PuntoDiRitiro.id)\\
+\textbf{Ordine}(\underline{Carrello} → Carrello.Id, \underline{Utente} → Carrello.Utente, Data, PreferenzeSpedizione, CartaDiCredito → CartaDiCredito.Numero, CodiceTransazione, CodiceSpedizione → Spedizione.codice, Residenza → Residenza.id, PuntoDiRitiro → PuntoDiRitiro.id)\\
 \textbf{Carrello}(\underline{Id}, \underline{Utente} → Utente.Email, Importo)\\
 \textbf{Utente}(\underline{Email}, Password, Nome, Cognome, NumeroTelefono, Abbonamento, DataIscrizione, DataScadenza, Residenza → Residenza)\\
 \textbf{CartaDiCredito}(\underline{Numero}, Circuito, Scadenza, CVV, Intestatario, Utente → Utente.Email)\\
