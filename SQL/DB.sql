@@ -19,8 +19,8 @@ CREATE TABLE Stabilimento(
 	Id INTEGER PRIMARY KEY,
 	Stato VARCHAR(100) NOT NULL, 
 	Fornitore VARCHAR(11) NOT NULL,
-	FOREIGN KEY (Id) REFERENCES Indirizzo (Id),
-	FOREIGN KEY (Fornitore) REFERENCES Fornitore (PIVA)
+	FOREIGN KEY (Id) REFERENCES Indirizzo (Id) ON DELETE CASCADE,
+	FOREIGN KEY (Fornitore) REFERENCES Fornitore (PIVA) ON DELETE CASCADE
 );
 
 CREATE TABLE Prodotto(
@@ -33,19 +33,19 @@ CREATE TABLE Prodotto(
 	Peso DECIMAL NOT NULL CHECK (Peso > 0), 
 	QuantitaDisponibile INTEGER NOT NULL CHECK (QuantitaDisponibile >= 0), 
 	Fornitore VARCHAR(11) NOT NULL,
-	FOREIGN KEY (Fornitore) REFERENCES Fornitore (PIVA)
+	FOREIGN KEY (Fornitore) REFERENCES Fornitore (PIVA) ON DELETE NO ACTION
 );
 
 CREATE TABLE Residenza(
 	Id INTEGER PRIMARY KEY,
-	FOREIGN KEY (Id) REFERENCES Indirizzo (Id)
+	FOREIGN KEY (Id) REFERENCES Indirizzo (Id) ON DELETE CASCADE
 ); 
 
 CREATE TABLE PuntoDiRitiro(
 	Id INTEGER PRIMARY KEY, 
-	OrarioApertura TIMESTAMP NOT NULL, 
-	OrarioChiusura TIMESTAMP NOT NULL CHECK (OrarioChiusura > OrarioApertura),
-	FOREIGN KEY (Id) REFERENCES Indirizzo (Id)
+	OrarioApertura TIME NOT NULL, 
+	OrarioChiusura TIME NOT NULL CHECK (OrarioChiusura > OrarioApertura),
+	FOREIGN KEY (Id) REFERENCES Indirizzo (Id) ON DELETE CASCADE
 );
 
 CREATE TYPE TipoAbbonamento AS ENUM ('ANNUALE', 'MENSILE');
@@ -60,7 +60,7 @@ CREATE TABLE Utente(
 	DataIscrizione TIMESTAMP, 
 	DataScadenza TIMESTAMP, 
 	Residenza INTEGER,
-	FOREIGN KEY (Residenza) REFERENCES Residenza (Id),
+	FOREIGN KEY (Residenza) REFERENCES Residenza (Id) ON DELETE SET NULL,
 	CHECK (DataScadenza > DataIscrizione)
 );
 
@@ -69,7 +69,7 @@ CREATE TABLE Carrello(
 	Utente VARCHAR(100) NOT NULL, 
 	Importo DECIMAL NOT NULL DEFAULT 0 CHECK (Importo >= 0),
 	PRIMARY KEY (Id, Utente),
-	FOREIGN KEY (Utente) REFERENCES Utente (Email)
+	FOREIGN KEY (Utente) REFERENCES Utente (Email) ON DELETE NO ACTION
 );
 
 CREATE TABLE CartaDiCredito(
@@ -79,7 +79,7 @@ CREATE TABLE CartaDiCredito(
 	CVV VARCHAR(3) NOT NULL, 
 	Intestatario VARCHAR(50), 
 	Utente VARCHAR(100),
-	FOREIGN KEY (Utente) REFERENCES Utente (Email)
+	FOREIGN KEY (Utente) REFERENCES Utente (Email) ON DELETE NO ACTION
 );
 
 CREATE TABLE Spedizione(
@@ -100,11 +100,11 @@ CREATE TABLE Ordine(
 	Residenza INTEGER, 
 	PuntoDiRitiro INTEGER,
 	PRIMARY KEY (Carrello, Utente),
-    FOREIGN KEY (Carrello, Utente) REFERENCES Carrello (Id, Utente),
-	FOREIGN KEY (CartaDiCredito) REFERENCES CartaDiCredito (Numero),
-	FOREIGN KEY (CodiceSpedizione) REFERENCES Spedizione (Codice),
-	FOREIGN KEY (Residenza) REFERENCES Residenza (Id),
-	FOREIGN KEY (PuntoDiRitiro) REFERENCES PuntoDiRitiro (Id),
+    FOREIGN KEY (Carrello, Utente) REFERENCES Carrello (Id, Utente) ON DELETE NO ACTION,
+	FOREIGN KEY (CartaDiCredito) REFERENCES CartaDiCredito (Numero) ON DELETE NO ACTION,
+	FOREIGN KEY (CodiceSpedizione) REFERENCES Spedizione (Codice) ON DELETE NO ACTION,
+	FOREIGN KEY (Residenza) REFERENCES Residenza (Id) ON DELETE NO ACTION,
+	FOREIGN KEY (PuntoDiRitiro) REFERENCES PuntoDiRitiro (Id) ON DELETE NO ACTION,
 	CHECK ( (Residenza IS NULL AND PuntoDiRitiro IS NOT NULL) OR
 		    (Residenza IS NOT NULL AND PuntoDiRitiro IS NULL) ) 
 );
@@ -117,9 +117,9 @@ CREATE TABLE Reso(
 	Motivazione VARCHAR(500) NOT NULL,
 	Indirizzo INTEGER NOT NULL,
 	PRIMARY KEY (Prodotto, Ordine, Utente),
-	FOREIGN KEY (Prodotto) REFERENCES Prodotto (Codice), 
-	FOREIGN KEY (Ordine, Utente) REFERENCES Ordine (Carrello, Utente),
-	FOREIGN KEY (Indirizzo) REFERENCES Stabilimento (Id)
+	FOREIGN KEY (Prodotto) REFERENCES Prodotto (Codice) ON DELETE NO ACTION, 
+	FOREIGN KEY (Ordine, Utente) REFERENCES Ordine (Carrello, Utente) ON DELETE NO ACTION,
+	FOREIGN KEY (Indirizzo) REFERENCES Stabilimento (Id) ON DELETE NO ACTION
 );
 
 CREATE TABLE ProdottiSalvati(
@@ -128,6 +128,6 @@ CREATE TABLE ProdottiSalvati(
 	Utente VARCHAR(100) NOT NULL, 
 	Quantita INTEGER CHECK (Quantita > 0),
 	PRIMARY KEY (Prodotto, Carrello, Utente),
-	FOREIGN KEY (Prodotto) REFERENCES Prodotto (Codice),
-	FOREIGN KEY (Carrello, Utente) REFERENCES Carrello (Id, Utente)
+	FOREIGN KEY (Prodotto) REFERENCES Prodotto (Codice) ON DELETE CASCADE,
+	FOREIGN KEY (Carrello, Utente) REFERENCES Carrello (Id, Utente) ON DELETE CASCADE
 );

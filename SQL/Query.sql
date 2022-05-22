@@ -1,13 +1,10 @@
 --1
-SELECT Prodotto.Nome, Prodotto.Prezzo, Prodotto.Descrizione, Prodotto.Prime
-FROM Prodotto JOIN 
-(
-SELECT Prodotto as Codice, COUNT(*) as NumeroResi
-FROM Reso
-GROUP BY Prodotto
-HAVING NumeroResi >= 1000
-) as ProdottoReso
-ON Prodotto.Codice = ProdottoReso.Codice
+SELECT Utente.Email, COUNT(*) as NumeroResi
+FROM Reso, Utente
+WHERE Reso.Utente = Utente.Email
+GROUP BY Utente
+ORDER BY NumeroResi DESC
+LIMIT(10)
 
 --2
 SELECT Nome, NumeroTelefono, Email, ProdottiPrime
@@ -18,7 +15,6 @@ FROM Fornitore JOIN
     WHERE Prime = TRUE
     GROUP BY PIVA
     ORDER BY ProdottiPrime DESC
-    --LIMIT(10) da aggiungere se si vogliono i primi 10
 ) as FornitorePrime
 ON Fornitore.PIVA = FornitorePrime.PIVA
 
