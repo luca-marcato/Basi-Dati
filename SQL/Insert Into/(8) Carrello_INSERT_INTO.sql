@@ -8,3 +8,5 @@ INSERT INTO public.carrello(id, utente, importo)
 VALUES (1, 'utente2@studente.unipd.it', 616.41);
 INSERT INTO public.carrello(id, utente, importo)
 VALUES (2, 'utente2@studente.unipd.it', 12.95);
+INSERT INTO public.carrello(id, utente, importo)
+VALUES (1, 'utente3@studente.unipd.it', 576,22);
