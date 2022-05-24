@@ -1,0 +1,16 @@
+INSERT INTO public.reso(prodotto, ordine, utente, quantita, motivazione, indirizzo)
+VALUES ('P0136', 1, 'utente1@studente.unipd.it', 1, 'Motivazione 1', 48);
+INSERT INTO public.reso(prodotto, ordine, utente, quantita, motivazione, indirizzo)
+VALUES ('P0417', 1, 'utente11@studente.unipd.it', 1, 'Motivazione 2', 32);
+INSERT INTO public.reso(prodotto, ordine, utente, quantita, motivazione, indirizzo)
+VALUES ('P0337', 1, 'utente2@unipd.it', 1, 'Motivazione 3', 35);
+INSERT INTO public.reso(prodotto, ordine, utente, quantita, motivazione, indirizzo)
+VALUES ('P0115', 1, 'utente4@studente.unipd.it', 1, 'Motivazione 4', 60);
+INSERT INTO public.reso(prodotto, ordine, utente, quantita, motivazione, indirizzo)
+VALUES ('P0295', 2, 'utente6@studente.unipd.it', 1, 'Motivazione 5', 71);
+INSERT INTO public.reso(prodotto, ordine, utente, quantita, motivazione, indirizzo)
+VALUES ('P0267', 2, 'utente1@studente.unipd.it', 1, 'Motivazione 6', 39);
+INSERT INTO public.reso(prodotto, ordine, utente, quantita, motivazione, indirizzo)
+VALUES ('P0437', 2, 'utente11@studente.unipd.it', 1, 'Motivazione ', 36);
+INSERT INTO public.reso(prodotto, ordine, utente, quantita, motivazione, indirizzo)
+VALUES ('P0367', 2, 'utente2@unipd.it', 1, 'Motivazione ', 39);
