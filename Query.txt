@@ -1,24 +1,8 @@
-1. Email e il totla dei resi degli utenti con maggior numero di resi, i primi 10.
-2. Le informazioni dei fornitori che emettono il maggior numero di prodotti prime.
+1. Email ed il numero totale di resi degli utenti.
+2. Le informazioni dei fornitori che emettono il maggior numero di prodotti prime, i primi 5.
 3. Gli utenti che hanno acquistato almeno un prodotto realizzato da un fornitore che possiede almeno
 uno stabilimento all'estero.
-4. Le date e gli ordini delle ultime 5 spedizioni effettuate all'indirizzo 
-"Via Trieste, 63, 35131, Padova".
+4. Selezionare i prodotti, la quantità, l'ordine e il codice di spedizione delle ultime 5
+spedizioni effettuate all'indirizzo "Via Trieste, 63, 35121, Padova".
 5. Selezionare l'email, il tipo di abbonamento e la carta di credito più usata
-degli utenti che hanno una spesa totale maggiore di 5000(5K) euro.
-
-1, 'utente1@studente.unipd.it'
-(Codice Prodotto: P0136 Quantità:1 Prezzo:67) - P0307 1 45.99 - P0447 1 76.99
-2, 'utente1@studente.unipd.it'
-P0147 2 150.50 - P0267 2 32.65 - P0467 1 422.19
-3, 'utente1@studente.unipd.it'
-P0267 1 32.65 - P0397 4 99.50
-
-1, 'utente2@studente.unipd.it'
-P0185 1 321.45 - P0156 2 5.0 - P0567 1 53.99 - P0447 3  76.99
-2, 'utente2@studente.unipd.it'
-P0297 1 12.95
-
-1, 'utente3@studente.unipd.it'
-P0376 2 132.55 - P0295 1 311.12
-
+degli utenti che hanno una spesa totale maggiore di 500 euro.

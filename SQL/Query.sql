@@ -2,9 +2,8 @@
 SELECT Utente.Email, COUNT(*) as NumeroResi
 FROM Reso, Utente
 WHERE Reso.Utente = Utente.Email
-GROUP BY Utente
+GROUP BY Utente.Email
 ORDER BY NumeroResi DESC
-LIMIT(10)
 
 --2
 SELECT Nome, NumeroTelefono, Email, ProdottiPrime
@@ -15,21 +14,22 @@ FROM Fornitore JOIN
     WHERE Prime = TRUE
     GROUP BY PIVA
     ORDER BY ProdottiPrime DESC
+    LIMIT(5)
 ) as FornitorePrime
 ON Fornitore.PIVA = FornitorePrime.PIVA
 
 --3
-DROP VIEW IF EXISTS FornitoreEstero
+DROP VIEW IF EXISTS FornitoreEstero;
 CREATE VIEW FornitoreEstero as
 SELECT DISTINCT PIVA
 FROM Fornitore, Stabilimento
 WHERE Stabilimento.Fornitore = Fornitore.PIVA
-AND Stato <> "IT"
+AND Stato <> 'IT';
 
-SELECT ProdottiAcquistati.Utente
+SELECT DISTINCT ProdottiAcquistati.Utente
 FROM Prodotto JOIN
 (
-    SELECT ProdottiSalvati.Prodotto as Prodotto, ProdottiSalvati.Utente as Utente
+    SELECT ProdottiSalvati.Prodotto, ProdottiSalvati.Utente
     FROM Ordine, Carrello, ProdottiSalvati
     WHERE Ordine.Carrello = Carrello.id
     AND Ordine.Utente = Carrello.Utente
@@ -37,26 +37,26 @@ FROM Prodotto JOIN
     AND Carrello.Utente = ProdottiSalvati.Utente
 ) as ProdottiAcquistati
 ON ProdottiAcquistati.Prodotto = Prodotto.Codice
-WHERE Prodotto.Fornitore IN FornitoreEstero
+WHERE Prodotto.Fornitore IN (SELECT * FROM FornitoreEstero)
 
 --4
-SELECT Nome, Quantita, ProdottiAcquistati.DataPartenza, ProdottiAcquistati.DataArrivo
+SELECT Nome, Quantita, ProdottiAcquistati.Ordine, ProdottiAcquistati.Utente, ProdottiAcquistati.CodiceSpedizione
 FROM Prodotto JOIN
 (
-    SELECT Prodotto as Codice, Quantita, InfoAcquisto.DataPartenza as DataPartenza, InfoAcquisto.DataEffettiva as DataArrivo
+    SELECT Prodotto as Codice, Quantita, InfoAcquisto.Carrello as Ordine, InfoAcquisto.Utente, InfoAcquisto.Codice as CodiceSpedizione
     FROM ProdottiSalvati JOIN 
     (
-        SELECT Carrello, Utente, DataPartenza, DataEffettiva
+        SELECT Carrello, Utente, Codice
         FROM Ordine JOIN Spedizione
-        ON Ordine.Spedizione = Spedizione.Codice
+        ON Ordine.CodiceSpedizione = Spedizione.Codice
         WHERE Ordine.PuntoDiRitiro = 
         (
             SELECT Id 
             FROM Indirizzo
-            WHERE Via = "Via Trieste"
-            AND NumeroCivico = "63",
-            AND CAP = "35136",
-            AND Citta = "Padova"
+            WHERE Via = 'Via Trieste'
+            AND NumeroCivico = '63'
+            AND CAP = '35121'
+            AND Citta = 'Padova'
         )
         ORDER BY DataEffettiva
         LIMIT(5)
@@ -67,17 +67,17 @@ FROM Prodotto JOIN
 ON Prodotto.Codice = ProdottiAcquistati.Codice
 
 --5
-DROP VIEW IF EXISTS OrdiniPerCircuto
+DROP VIEW IF EXISTS OrdiniPerCircuto;
 CREATE VIEW OrdiniPerCircuto as
-SELECT Circuito, Utente, COUNT(*) as OrdiniEffettuati
+SELECT Circuito, Ordine.Utente, COUNT(*) as OrdiniEffettuati
 FROM Ordine, CartaDiCredito
 WHERE Ordine.CartaDiCredito = CartaDiCredito.Numero
-GROUP BY Circuito
+GROUP BY Circuito, Ordine.Utente;
 
-SELECT UtenteDatoImportoTotale.Email, UtenteDatoImportoTotale.Abbonamento, OC1.Circuito
+SELECT UtenteDatoImportoTotale.Email, UtenteDatoImportoTotale.Abbonamento, OC1.Circuito, UtenteDatoImportoTotale.ImportoTotale
 FROM OrdiniPerCircuto as OC1, OrdiniPerCircuto as OC2,
 (
-    SELECT Utente.Email as Email, Abbonamento
+    SELECT Utente.Email as Email, Abbonamento, SpesaUtente.ImportoTotale
     FROM Utente JOIN
     (
         SELECT Carrello.Utente as Email, SUM(Importo) as ImportoTotale
@@ -85,11 +85,10 @@ FROM OrdiniPerCircuto as OC1, OrdiniPerCircuto as OC2,
         WHERE Ordine.Utente = Carrello.Utente
         AND Ordine.Carrello = Carrello.Id
         GROUP BY Carrello.Utente
-        HAVING ImportoTotale >= 5000
+        HAVING SUM(Importo) >= 500
     ) as SpesaUtente
     ON Utente.Email = SpesaUtente.Email
 ) as UtenteDatoImportoTotale
-WHERE OC1.Utente = OC2.Utente
-AND OC1.Circuito <> OC2.Circuito
+WHERE UtenteDatoImportoTotale.Email = OC1.Utente
+AND OC1.Utente = OC2.Utente
 AND OC1.OrdiniEffettuati >= OC2.OrdiniEffettuati
-AND UtenteDatoImportoTotale.Email = OC1.Email
