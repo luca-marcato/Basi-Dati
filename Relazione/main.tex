@@ -1,4 +1,4 @@
-\documentclass[11pt]{article}
+\documentclass[10pt]{article}
 
 % font
 \usepackage{helvet}
@@ -21,6 +21,15 @@
 % immagini
 \usepackage{graphicx}
 \usepackage{float}
+
+% SQL 
+\usepackage{listings}
+\usepackage{xcolor}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.96}
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour}
+}
+\lstset{style=mystyle}
 
 \begin{document}
 
@@ -55,6 +64,7 @@ possibile effettuare il reso dei prodotti acquistati avendo la garanzia di rimbo
 
 Nella base di dati sono presenti i dati degli \textbf{utenti} registrati, di ogni utente sono noti:
 \begin{itemize}
+    \itemsep0em 
     \item Nome
     \item Cognome
     \item Indirizzo email
@@ -67,6 +77,7 @@ Un utente può abbonarsi all'offerta "Prime", che avrà durata mensile o annuale
 L'utente abbonato non paga i costi di spedizione su tutti i prodotti indicati.\\
 Le \textbf{carte di credito} utilizzate dall’utente devono essere provviste di:
 \begin{itemize}
+    \itemsep0em 
     \item Numero
     \item Circuito (Mastercard, Visa, …)
     \item Scadenza
@@ -76,6 +87,7 @@ Le \textbf{carte di credito} utilizzate dall’utente devono essere provviste di
 I pagamenti vengono autorizzati attraverso un sito esterno, rilevato automaticamente dal circuito.\\
 Ogni \textbf{fornitore} deve fornire le informazioni riguardo a:
 \begin{itemize}
+    \itemsep0em 
     \item Nome
     \item Numero di telefono
     \item Indirizzo email
@@ -85,6 +97,7 @@ Ogni \textbf{fornitore} deve fornire le informazioni riguardo a:
 Gli stabilimenti dei fornitori possono trovarsi anche in paesi esteri fuori dall'Italia.\\
 Di ogni \textbf{prodotto}, si vuole conoscere:
 \begin{itemize}
+    \itemsep0em 
     \item Codice
     \item Nome
     \item Prezzo
@@ -96,6 +109,7 @@ Di ogni \textbf{prodotto}, si vuole conoscere:
 \end{itemize}
 Ogni \textbf{ordine} deve memorizzare le informazioni riguardo:
 \begin{itemize}
+    \itemsep0em 
     \item Carrello (Utente e Prodotti ordinati)
     \item Metodo di pagamento utilizzato
     \item Data e ora di acquisto
@@ -106,6 +120,7 @@ Gli ordini possono essere ritirati dal cliente, in quel caso deve essergli forni
 scelto oppure possono essere spediti all'indirizzo di residenza dell'utente.\\
 Quando viene richiesta una \textbf{spedizione} si vogliono memorizzare le informazioni riguardo:
 \begin{itemize}
+    \itemsep0em 
     \item Codice
     \item Data di partenza prevista
     \item Data di arrivo prevista
@@ -114,15 +129,18 @@ Quando viene richiesta una \textbf{spedizione} si vogliono memorizzare le inform
 Per ricevere i propri prodotti interessa conoscere i \textbf{punti di consegna}. Per ogni Punto di consegna si vogliono
 memorizzare le seguenti informazioni:
 \begin{itemize}
+    \itemsep0em 
     \item Indirizzo (Via, Numero civico, CAP, Città, Provincia, Stato)
 \end{itemize}
 Inoltre, se il punto di consegna è un punto di ritiro scelto dall'utente (e quindi non il suo indirizzo di residenza), ci interessa sapere:
 \begin{itemize}
+    \itemsep0em 
     \item Orario di apertura
     \item Orario di chiusura
 \end{itemize}
 Infine per effettuare un \textbf{reso} è necessario specificare:
 \begin{itemize}
+    \itemsep0em 
     \item Utente
     \item Prodotto acquistato
     \item Quantità da rendere
@@ -262,7 +280,7 @@ Infine per effettuare un \textbf{reso} è necessario specificare:
 
 \begin{center}
     
-    \begin{tabularx}{0.98\textwidth} {
+    \begin{tabularx}{\textwidth} {
         | >{\raggedright\arraybackslash}X |
           >{\raggedright\arraybackslash}X |
           >{\raggedright\arraybackslash}X |
@@ -361,18 +379,22 @@ Infine per effettuare un \textbf{reso} è necessario specificare:
 
 \textbf{Se non specificato l'attributo è NOT NULL}
 \begin{itemize}
+    \itemsep0em 
     \item Utente
     \begin{itemize}
+        \itemsep0em 
         \item \underline{Email}: varchar(100) PRIMARY KEY
         \item Nome: varchar(50)
         \item Cognome: varchar(50)
         \item NumeroTelefono: varchar(15)
         \item Password: varchar(20)
         \begin{description}
+            \itemsep0em 
             \item L'entità utente si specializza in una sottocategoria con una \textbf{generalizzazione parziale}:
         \end{description}
         \item[•] Utente Prime
         \begin{itemize}
+            \itemsep0em 
             \item[–] DataIscrizione: timestamp
             \item[–] DataScadenza: timestamp, (\textgreater{} DataIscrizione)
             \item[–] Abbonamento: Enumerated, ("MENSILE", "ANNUALE")
@@ -380,12 +402,14 @@ Infine per effettuare un \textbf{reso} è necessario specificare:
     \end{itemize}
     \item Carrello
     \begin{itemize}
+        \itemsep0em 
         \item \underline{Id}: integer PRIMARY KEY
         \item \underline{Utente}: varchar(100) PRIMARY KEY
         \item Importo: decimal, (\textgreater{}= 0)
     \end{itemize}
     \item Prodotto
     \begin{itemize}
+        \itemsep0em 
         \item \underline{Codice}: varchar(14) PRIMARY KEY
         \item Nome: varchar(100)
         \item Prezzo: decimal, (\textgreater{}= 0)
@@ -397,6 +421,7 @@ Infine per effettuare un \textbf{reso} è necessario specificare:
     \end{itemize}
     \item Fornitore
     \begin{itemize}
+        \itemsep0em 
         \item \underline{PIVA}: varchar(11) PRIMARY KEY
         \item Nome: varchar(50)
         \item Email: varchar(100)
@@ -404,6 +429,7 @@ Infine per effettuare un \textbf{reso} è necessario specificare:
     \end{itemize}
     \item Stabilimento
     \begin{itemize}
+        \itemsep0em 
         \item \underline{Via}: varchar(100) PRIMARY KEY
         \item \underline{NumeroCivico}: varchar(10) PRIMARY KEY
         \item \underline{CAP}: varchar(5) PRIMARY KEY
@@ -412,6 +438,7 @@ Infine per effettuare un \textbf{reso} è necessario specificare:
     \end{itemize}
     \item CartaDiCredito
     \begin{itemize}
+        \itemsep0em 
         \item \underline{Numero}: varchar(16) PRIMARY KEY
         \item Circuito: varchar(25)
         \item Scadenza: date
@@ -420,6 +447,7 @@ Infine per effettuare un \textbf{reso} è necessario specificare:
     \end{itemize}
     \item Ordine
     \begin{itemize}
+        \itemsep0em 
         \item \underline{Carrello}: integer PRIMARY KEY
         \item \underline{Utente}: varchar(100) PRIMARY KEY
         \item DataAcquisto: timestamp
@@ -427,6 +455,7 @@ Infine per effettuare un \textbf{reso} è necessario specificare:
     \end{itemize}
     \item Spedizione:
     \begin{itemize}
+        \itemsep0em 
         \item \underline{Codice}: varchar(13) PRIMARY KEY
         \item DataPartenza: timestamp
         \item DataArrivo: timestamp (\textgreater{} DataPartenza)
@@ -434,15 +463,18 @@ Infine per effettuare un \textbf{reso} è necessario specificare:
     \end{itemize}
     \item PuntoDiConsegna
     \begin{itemize}
+        \itemsep0em 
         \item \underline{Via}: varchar(100) PRIMARY KEY
         \item \underline{NumeroCivico}: varchar(10) PRIMARY KEY
         \item \underline{CAP}: varchar(5) PRIMARY KEY
         \item \underline{Città}: varchar(100)
         \begin{description}
+            \itemsep0em 
             \item L'entità Punto di consegna si specializza in due sottocategorie con una \textbf{generalizzazione totale}:
         \end{description}
         \item[•] PuntoDiRitiro
         \begin{itemize}
+            \itemsep0em 
             \item[–] OraApertura: time
             \item[–] OraChiusura: time, (\textgreater{} OraApertura)
         \end{itemize}
@@ -450,6 +482,7 @@ Infine per effettuare un \textbf{reso} è necessario specificare:
     \end{itemize}
     \item Reso
     \begin{itemize}
+        \itemsep0em 
         \item \underline{Utente}: varchar(100) PRIMARY KEY
         \item \underline{Carrello}: integer PRIMARY KEY
         \item \underline{Ordine}: integer PRIMARY KEY
@@ -462,7 +495,7 @@ Infine per effettuare un \textbf{reso} è necessario specificare:
 \subsection{Tabella delle relazioni}
 
 \begin{center}
-    \begin{tabularx}{0.98\textwidth} {
+    \begin{tabularx}{\textwidth} {
         | >{\raggedright\arraybackslash}>{\hsize=.4\hsize}X |
           >{\raggedright\arraybackslash}>{\hsize=.4\hsize}X |
           >{\raggedright\arraybackslash}                  X |
@@ -620,12 +653,14 @@ Infine per effettuare un \textbf{reso} è necessario specificare:
 
 \textbf{Vincoli non rappresentabili tramite schema E-R:}
 \begin{itemize}
+    \itemsep0em 
     \item Un cliente può effettuare il reso solo dei prodotti che ha precedentemente acquistato e che gli sono stati consegnati
     \item L'attributo importo dell'entità ordine è uguale alla somma dei prezzi dei prodotti presenti nel carrello più le relative spese di spedizione dei singoli prodotti
 \end{itemize}
 
 \textbf{Vincoli di derivazione:}
 \begin{itemize}
+    \itemsep0em 
     \item Il valore degli attributi DataIscrizione e DataScadenza dell'entità utente prime devono essere coerenti con il tipo di abbonamento dell'utente
 \end{itemize}
 
@@ -647,7 +682,7 @@ Infine per effettuare un \textbf{reso} è necessario specificare:
 L'attributo "\textbf{Importo}" dell'entità Carrello è ridondante in quanto si potrebbe calcolare facendo la somma dei prezzi
 di tutti i prodotti e del costo delle loro spedizioni presenti nel carrello.
 
-\begin{tabularx}{0.98\textwidth} {
+\begin{tabularx}{\textwidth} {
         | >{\raggedright\arraybackslash}X |
           >{\raggedright\arraybackslash}X |
           >{\raggedright\arraybackslash}X |
@@ -684,6 +719,7 @@ di tutti i prodotti e del costo delle loro spedizioni presenti nel carrello.
 \end{tabularx}
 
 \begin{itemize}
+    \itemsep0em 
     \item Operazione 1: Aggiungere un nuovo prodotto al carrello (10000 al giorno)
     \item Operazione 2: Visualizzare l'importo totale del carrello (25000 al giorno)
 \end{itemize}
@@ -693,7 +729,7 @@ Operazione 1:
 \newcommand{\noline}[1]{\multicolumn{1}{c}{#1}}
 \newcommand{\myline}{\cline{1-4}}
 \begin{center}
-    \begin{tabularx}{0.98\textwidth} {
+    \begin{tabularx}{\textwidth} {
         | >{\raggedright\arraybackslash}X |
         >{\raggedright\arraybackslash}X |
         >{\raggedright\arraybackslash}X |
@@ -756,7 +792,7 @@ Operazione 1:
 \end{center}
 Operazione 2:
 \begin{center}
-    \begin{tabularx}{0.98\textwidth} {
+    \begin{tabularx}{\textwidth} {
         | >{\raggedright\arraybackslash}X |
         >{\raggedright\arraybackslash}X |
         >{\raggedright\arraybackslash}X |
@@ -786,7 +822,7 @@ COSTO TOTALE: 10000*2 + 10000 + 10000 + 10000*2 + 25000 = 85000 (85K)\\\\
 \textbf{ASSENZA RIDONDANZA}
 
 \begin{center}
-    \begin{tabularx}{0.98\textwidth} {
+    \begin{tabularx}{\textwidth} {
         | >{\raggedright\arraybackslash}X |
         >{\raggedright\arraybackslash}X |
         >{\raggedright\arraybackslash}X |
@@ -814,7 +850,7 @@ COSTO TOTALE: 10000*2 + 10000 + 10000 + 10000*2 + 25000 = 85000 (85K)\\\\
 Operazione 2:\\
 Sono presenti in media 500000 / 250000 = 2 prodotti a carrello
 \begin{center}
-    \begin{tabularx}{0.98\textwidth} {
+    \begin{tabularx}{\textwidth} {
         | >{\raggedright\arraybackslash}X |
         >{\raggedright\arraybackslash}X |
         >{\raggedright\arraybackslash}X |
@@ -870,7 +906,7 @@ il costo computazionale di (130K - 85K) = 45K operazioni, perciò verrà mantenu
 \subsubsection{Eliminazione delle generalizzazioni}
 
 \begin{center}
-    \begin{tabularx}{0.97\textwidth} {
+    \begin{tabularx}{\textwidth} {
         | >{\raggedright\arraybackslash}>{\hsize=.4\hsize}X |
           >{\raggedright\arraybackslash}>{\hsize=.6\hsize}X |
         }
@@ -903,6 +939,7 @@ il costo computazionale di (130K - 85K) = 45K operazioni, perciò verrà mantenu
 
 Per l'entità Carrello è stato deciso di utilizzare come chiave primaria un attributo composto formato da:
 \begin{itemize}
+    \itemsep0em 
     \item L'attributo Utente, che è anche chiave esterna della relazione Carrello - Utente.
     \item L'attributo Id.
 \end{itemize}
@@ -914,6 +951,7 @@ ad uno specifico indirizzo dovevano aggiungere quattro nuovi attributi (NumeroCi
 la ridondanza e rendendo più difficile l'aggiornamento delle tabelle.\\\\
 Si è deciso perciò di creare una nuova entità \textbf{Indirizzo}:
 \begin{itemize}
+    \itemsep0em 
     \item[-] \underline{Id}: Integer PRIMARY KEY
     \item[-] Via: varchar(100)
     \item[-] NumeroCivico: varchar(10)
@@ -923,7 +961,7 @@ Si è deciso perciò di creare una nuova entità \textbf{Indirizzo}:
 Dotata delle seguenti relazioni
 
 \begin{center}
-    \begin{tabularx}{0.98\textwidth} {
+    \begin{tabularx}{\textwidth} {
         | >{\raggedright\arraybackslash}>{\hsize=.4\hsize}X |
           >{\raggedright\arraybackslash}>{\hsize=.5\hsize}X |
           >{\raggedright\arraybackslash}                  X |
@@ -1001,11 +1039,173 @@ Le entità Stabilimento, PuntoDiRitiro e Residenza avranno come chiave primaria 
 
 \subsection{Query}
 
-\dots
+1. Selezionare l'email ed il numero totale di resi di ogni utente.
+
+\begin{lstlisting}[language=SQL]
+
+    SELECT Utente.Email, COUNT(*) as NumeroResi
+    FROM Reso, Utente
+    WHERE Reso.Utente = Utente.Email
+    GROUP BY Utente.Email
+    ORDER BY NumeroResi DESC
+\end{lstlisting}
+
+\begin{center}
+    \begin{figure}[H]
+        \includegraphics[scale=1]{media/query1.png}
+        \label{query1}
+    \end{figure}
+\end{center}
+2. Selezionare le informazioni dei fornitori che emettono il maggior numero di prodotti prime, i primi 5.
+
+\begin{lstlisting}[language=SQL]
+
+    SELECT Nome, NumeroTelefono, Email, ProdottiPrime
+    FROM Fornitore JOIN
+    (
+        SELECT Fornitore as PIVA, COUNT(*) as ProdottiPrime
+        FROM Prodotto
+        WHERE Prime = TRUE
+        GROUP BY PIVA
+        ORDER BY ProdottiPrime DESC
+        LIMIT(5)
+    ) as FornitorePrime
+    ON Fornitore.PIVA = FornitorePrime.PIVA
+\end{lstlisting}
+
+\begin{center}
+    \begin{figure}[H]
+        \includegraphics[scale=1]{media/query2.png}
+        \label{query2}
+    \end{figure}
+\end{center}
+3. Selezionare gli utenti che hanno acquistato almeno un prodotto realizzato da un fornitore che possiede almeno
+uno stabilimento all'estero e la città della loro residenza.
+
+\begin{lstlisting}[language=SQL]
+
+    DROP VIEW IF EXISTS FornitoreEstero;
+    CREATE VIEW FornitoreEstero as
+    SELECT PIVA
+    FROM Fornitore, Stabilimento
+    WHERE Stabilimento.Fornitore = Fornitore.PIVA
+    AND Stato <> 'IT';
+
+    SELECT Nome, Cognome, Citta
+    FROM Utente, Indirizzo,
+    (
+        SELECT DISTINCT ProdottiAcquistati.Utente
+        FROM Prodotto JOIN
+        (
+            SELECT ProdottiSalvati.Prodotto, ProdottiSalvati.Utente
+            FROM Ordine, Carrello, ProdottiSalvati
+            WHERE Ordine.Carrello = Carrello.id
+            AND Ordine.Utente = Carrello.Utente
+            AND Carrello.id = ProdottiSalvati.Carrello
+            AND Carrello.Utente = ProdottiSalvati.Utente
+        ) as ProdottiAcquistati
+        ON ProdottiAcquistati.Prodotto = Prodotto.Codice
+        WHERE Prodotto.Fornitore IN (SELECT * FROM FornitoreEstero)
+    ) as Utenti
+    WHERE Utente.Email = Utenti.Utente
+    AND Utente.Residenza = Indirizzo.id;
+\end{lstlisting}
+
+\begin{center}
+    \begin{figure}[H]
+        \includegraphics[scale=1]{media/query3.png}
+        \label{query3}
+    \end{figure}
+\end{center}
+4. Selezionare i prodotti, la quantità, l'ordine e il codice di spedizione delle ultime 5
+spedizioni effettuate all'indirizzo "Via Trieste, 63, 35121, Padova".
+
+\begin{lstlisting}[language=SQL]
+
+    SELECT Nome, Quantita, ProdottiAcquistati.Ordine, ProdottiAcquistati.Utente,
+           ProdottiAcquistati.CodiceSpedizione
+    FROM Prodotto JOIN
+    (
+        SELECT Prodotto as Codice, Quantita, InfoAcquisto.Carrello as Ordine,
+               InfoAcquisto.Utente, InfoAcquisto.Codice as CodiceSpedizione
+        FROM ProdottiSalvati JOIN 
+        (
+            SELECT Carrello, Utente, Codice
+            FROM Ordine JOIN Spedizione
+            ON Ordine.CodiceSpedizione = Spedizione.Codice
+            WHERE Ordine.PuntoDiRitiro = 
+            (
+                SELECT Id 
+                FROM Indirizzo
+                WHERE Via = 'Via Trieste'
+                AND NumeroCivico = '63'
+                AND CAP = '35121'
+                AND Citta = 'Padova'
+            )
+            ORDER BY DataEffettiva
+            LIMIT(5)
+        ) as InfoAcquisto
+        ON InfoAcquisto.Utente = ProdottiSalvati.Utente
+        AND InfoAcquisto.Carrello = ProdottiSalvati.Carrello
+    ) as ProdottiAcquistati
+    ON Prodotto.Codice = ProdottiAcquistati.Codice
+\end{lstlisting}
+
+\begin{center}
+    \begin{figure}[H]
+        \includegraphics[scale=1]{media/query4.png}
+        \label{query4}
+    \end{figure}
+\end{center}
+5. Selezionare l'email, il tipo di abbonamento e la carta di credito più usata
+degli utenti che hanno una spesa totale maggiore di 500 euro.
+
+\begin{lstlisting}[language=SQL]
+
+    DROP VIEW IF EXISTS OrdiniPerCircuto;
+    CREATE VIEW OrdiniPerCircuto as
+    SELECT Circuito, Ordine.Utente, COUNT(*) as OrdiniEffettuati
+    FROM Ordine, CartaDiCredito
+    WHERE Ordine.CartaDiCredito = CartaDiCredito.Numero
+    GROUP BY Circuito, Ordine.Utente;
+    
+    SELECT UtenteDatoImportoTotale.Email, UtenteDatoImportoTotale.Abbonamento,
+           OC1.Circuito, UtenteDatoImportoTotale.ImportoTotale
+    FROM OrdiniPerCircuto as OC1, OrdiniPerCircuto as OC2,
+    (
+        SELECT Utente.Email as Email, Abbonamento, SpesaUtente.ImportoTotale
+        FROM Utente JOIN
+        (
+            SELECT Carrello.Utente as Email, SUM(Importo) as ImportoTotale
+            FROM Ordine, Carrello
+            WHERE Ordine.Utente = Carrello.Utente
+            AND Ordine.Carrello = Carrello.Id
+            GROUP BY Carrello.Utente
+            HAVING SUM(Importo) >= 500
+        ) as SpesaUtente
+        ON Utente.Email = SpesaUtente.Email
+    ) as UtenteDatoImportoTotale
+    WHERE UtenteDatoImportoTotale.Email = OC1.Utente
+    AND OC1.Utente = OC2.Utente
+    AND OC1.OrdiniEffettuati >= OC2.OrdiniEffettuati
+\end{lstlisting}
+
+\begin{center}
+    \begin{figure}[H]
+        \includegraphics[scale=1]{media/query5.png}
+        \label{query5}
+    \end{figure}
+\end{center}
 
 \subsection{Indici}
 
-\dots
+La ricerca di un prodotto è un operazione che viene eseguita molto spesso in lettura, dato
+che vengono sia ricercati dagli utenti ma anche inseriti automaticamente tra i prodotti consigliati
+e nella home del sito.
+
+\begin{lstlisting}[language=SQL]
+    CREATE INDEX ProdottiNomi ON Prodotto(Nome);
+\end{lstlisting}
 
 \section{Codice C++}
 

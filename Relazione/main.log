@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 21.12.10) (preloaded format=pdflatex 2022.1.22)  21 MAY 2022 14:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 21.12.10) (preloaded format=pdflatex 2022.1.22)  25 MAY 2022 15:51
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -8,8 +8,8 @@ entering extended mode
 LaTeX2e <2021-11-15> patch level 1
 L3 programming layer <2021-11-22> (C:\Users\marca\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
 Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
-(C:\Users\marca\AppData\Local\Programs\MiKTeX\tex/latex/base\size11.clo
-File: size11.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
+(C:\Users\marca\AppData\Local\Programs\MiKTeX\tex/latex/base\size10.clo
+File: size10.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
 )
 \c@part=\count183
 \c@section=\count184
@@ -112,31 +112,68 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \float@box=\box57
 \@float@everytoks=\toks22
 \@floatcapt=\box58
+) (C:\Users\marca\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.sty
+\lst@mode=\count267
+\lst@gtempboxa=\box59
+\lst@token=\toks23
+\lst@length=\count268
+\lst@currlwidth=\dimen157
+\lst@column=\count269
+\lst@pos=\count270
+\lst@lostspace=\dimen158
+\lst@width=\dimen159
+\lst@newlines=\count271
+\lst@lineno=\count272
+\lst@maxwidth=\dimen160
+ (C:\Users\marca\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
+File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
+\c@lstnumber=\count273
+\lst@skipnumbers=\count274
+\lst@framebox=\box60
+) (C:\Users\marca\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.cfg
+File: listings.cfg 2020/03/24 1.8d listings configuration
+))
+Package: listings 2020/03/24 1.8d (Carsten Heinz)
+ (C:\Users\marca\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
+Package: xcolor 2021/10/31 v2.13 LaTeX color extensions (UK)
+ (C:\Users\marca\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
-LaTeX Font Info:    Trying to load font information for OT1+phv on input line 25.
+Package xcolor Info: Driver file: pdftex.def on input line 227.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1352.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1356.
+Package xcolor Info: Model `RGB' extended on input line 1368.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1370.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1371.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1372.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1373.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1374.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1375.
+)
+LaTeX Font Info:    Trying to load font information for OT1+phv on input line 34.
  (C:\Users\marca\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1phv.fd
 File: ot1phv.fd 2020/03/25 scalable font definitions for OT1/phv.
 ) (C:\Users\marca\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2021-12-14 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count267
-\l__pdf_internal_box=\box59
+\l__color_backend_stack_int=\count275
+\l__pdf_internal_box=\box61
 ) (main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -157,12 +194,12 @@ LaTeX Font Info:    ... okay on input line 25.
 * \topmargin=-60.90031pt
 * \headheight=12.0pt
 * \headsep=25.0pt
-* \topskip=11.0pt
+* \topskip=10.0pt
 * \footskip=30.0pt
-* \marginparwidth=59.0pt
-* \marginparsep=10.0pt
+* \marginparwidth=65.0pt
+* \marginparsep=11.0pt
 * \columnsep=10.0pt
-* \skip\footins=10.0pt plus 4.0pt minus 2.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
 * \hoffset=0.0pt
 * \voffset=0.0pt
 * \mag=1000
@@ -174,162 +211,199 @@ LaTeX Font Info:    ... okay on input line 25.
 
 (C:\Users\marca\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count268
-\scratchdimen=\dimen157
-\scratchbox=\box60
-\nofMPsegments=\count269
-\nofMParguments=\count270
-\everyMPshowfont=\toks23
-\MPscratchCnt=\count271
-\MPscratchDim=\dimen158
-\MPnumerator=\count272
-\makeMPintoPDFobject=\count273
-\everyMPtoPDFconversion=\toks24
+\scratchcounter=\count276
+\scratchdimen=\dimen161
+\scratchbox=\box62
+\nofMPsegments=\count277
+\nofMParguments=\count278
+\everyMPshowfont=\toks24
+\MPscratchCnt=\count279
+\MPscratchDim=\dimen162
+\MPnumerator=\count280
+\makeMPintoPDFobject=\count281
+\everyMPtoPDFconversion=\toks25
 ) (C:\Users\marca\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
  (C:\Users\marca\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <10.95> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 33.
-LaTeX Font Info:    Trying to load font information for TS1+phv on input line 58.
+\c@lstlisting=\count282
+LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <10> not available
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 42.
+LaTeX Font Info:    Trying to load font information for TS1+phv on input line 68.
  (C:\Users\marca\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1phv.fd
 File: ts1phv.fd 2020/03/25 scalable font definitions for TS1/phv.
 ) [1
 
-{C:/Users/marca/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] [2] [3]
-LaTeX Font Info:    Trying to load font information for OML+phv on input line 377.
+{C:/Users/marca/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] [2]
+LaTeX Font Info:    Trying to load font information for OML+phv on input line 399.
  (C:\Users\marca\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\omlphv.fd
 File: omlphv.fd 
 )
-LaTeX Font Info:    Font shape `OML/phv/m/n' in size <10.95> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 377.
- [4] [5] [6]
-<media/SampleAmazonDB.png, id=24, 1178.90437pt x 855.04443pt>
+LaTeX Font Info:    Font shape `OML/phv/m/n' in size <10> not available
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 399.
+ [3] [4] [5]
+<media/SampleAmazonDB.png, id=21, 1178.90437pt x 855.04443pt>
 File: media/SampleAmazonDB.png Graphic file (type png)
 <use media/SampleAmazonDB.png>
-Package pdftex.def Info: media/SampleAmazonDB.png  used on input line 637.
+Package pdftex.def Info: media/SampleAmazonDB.png  used on input line 672.
 (pdftex.def)             Requested size: 518.71953pt x 376.22072pt.
 
-Overfull \hbox (17.951pt too wide) in paragraph at lines 637--639
+Overfull \hbox (17.951pt too wide) in paragraph at lines 672--674
 [][]
  []
 
-[7 <./media/SampleAmazonDB.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 784--787
+[6 <./media/SampleAmazonDB.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 820--823
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 866--869
+Underfull \hbox (badness 10000) in paragraph at lines 902--905
 
+ []
+
+[7]
+Underfull \hbox (badness 10000) in paragraph at lines 946--953
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 946--953
+
+ []
+
+<media/ER risolto.png, id=30, 1082.24326pt x 944.93025pt>
+File: media/ER risolto.png Graphic file (type png)
+<use media/ER risolto.png>
+Package pdftex.def Info: media/ER risolto.png  used on input line 1017.
+(pdftex.def)             Requested size: 519.47087pt x 453.56137pt.
+
+Overfull \hbox (18.70235pt too wide) in paragraph at lines 1017--1019
+[][]
  []
 
 [8]
-Underfull \hbox (badness 10000) in paragraph at lines 909--916
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 909--916
-
- []
-
-<media/ER risolto.png, id=33, 1082.24326pt x 944.93025pt>
-File: media/ER risolto.png Graphic file (type png)
-<use media/ER risolto.png>
-Package pdftex.def Info: media/ER risolto.png  used on input line 979.
-(pdftex.def)             Requested size: 519.47087pt x 453.56137pt.
-
-Overfull \hbox (18.70235pt too wide) in paragraph at lines 979--981
-[][]
- []
-
-[9]
 LaTeX Info: Symbol \textrightarrow not provided by
             font family phv in TS1 encoding.
-            Default family used instead on input line 985.
-LaTeX Font Info:    Trying to load font information for TS1+cmss on input line 985.
+            Default family used instead on input line 1023.
+LaTeX Font Info:    Trying to load font information for TS1+cmss on input line 1023.
  (C:\Users\marca\AppData\Local\Programs\MiKTeX\tex/latex/base\ts1cmss.fd
 File: ts1cmss.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 LaTeX Info: Symbol \textrightarrow not provided by
             font family phv in TS1 encoding.
-            Default family used instead on input line 987.
+            Default family used instead on input line 1025.
 LaTeX Info: Symbol \textrightarrow not provided by
             font family phv in TS1 encoding.
-            Default family used instead on input line 987.
+            Default family used instead on input line 1025.
 LaTeX Info: Symbol \textrightarrow not provided by
             font family phv in TS1 encoding.
-            Default family used instead on input line 989.
+            Default family used instead on input line 1027.
 LaTeX Info: Symbol \textrightarrow not provided by
             font family phv in TS1 encoding.
-            Default family used instead on input line 990.
+            Default family used instead on input line 1028.
 LaTeX Info: Symbol \textrightarrow not provided by
             font family phv in TS1 encoding.
-            Default family used instead on input line 990.
+            Default family used instead on input line 1028.
 LaTeX Info: Symbol \textrightarrow not provided by
             font family phv in TS1 encoding.
-            Default family used instead on input line 990.
+            Default family used instead on input line 1028.
 LaTeX Info: Symbol \textrightarrow not provided by
             font family phv in TS1 encoding.
-            Default family used instead on input line 990.
+            Default family used instead on input line 1028.
 LaTeX Info: Symbol \textrightarrow not provided by
             font family phv in TS1 encoding.
-            Default family used instead on input line 991.
+            Default family used instead on input line 1029.
 LaTeX Info: Symbol \textrightarrow not provided by
             font family phv in TS1 encoding.
-            Default family used instead on input line 991.
+            Default family used instead on input line 1029.
 LaTeX Info: Symbol \textrightarrow not provided by
             font family phv in TS1 encoding.
-            Default family used instead on input line 991.
+            Default family used instead on input line 1029.
 LaTeX Info: Symbol \textrightarrow not provided by
             font family phv in TS1 encoding.
-            Default family used instead on input line 993.
+            Default family used instead on input line 1031.
 LaTeX Info: Symbol \textrightarrow not provided by
             font family phv in TS1 encoding.
-            Default family used instead on input line 993.
+            Default family used instead on input line 1031.
 LaTeX Info: Symbol \textrightarrow not provided by
             font family phv in TS1 encoding.
-            Default family used instead on input line 993.
+            Default family used instead on input line 1031.
 LaTeX Info: Symbol \textrightarrow not provided by
             font family phv in TS1 encoding.
-            Default family used instead on input line 993.
+            Default family used instead on input line 1031.
 LaTeX Info: Symbol \textrightarrow not provided by
             font family phv in TS1 encoding.
-            Default family used instead on input line 993.
+            Default family used instead on input line 1031.
 LaTeX Info: Symbol \textrightarrow not provided by
             font family phv in TS1 encoding.
-            Default family used instead on input line 993.
+            Default family used instead on input line 1031.
 LaTeX Info: Symbol \textrightarrow not provided by
             font family phv in TS1 encoding.
-            Default family used instead on input line 994.
+            Default family used instead on input line 1032.
 LaTeX Info: Symbol \textrightarrow not provided by
             font family phv in TS1 encoding.
-            Default family used instead on input line 995.
+            Default family used instead on input line 1033.
 LaTeX Info: Symbol \textrightarrow not provided by
             font family phv in TS1 encoding.
-            Default family used instead on input line 996.
+            Default family used instead on input line 1034.
 LaTeX Info: Symbol \textrightarrow not provided by
             font family phv in TS1 encoding.
-            Default family used instead on input line 997.
+            Default family used instead on input line 1035.
 LaTeX Info: Symbol \textrightarrow not provided by
             font family phv in TS1 encoding.
-            Default family used instead on input line 998.
- [10 <./media/ER risolto.png>] [11] (main.aux) ) 
+            Default family used instead on input line 1036.
+
+Overfull \hbox (52.56946pt too wide) in paragraph at lines 1023--1037
+\OT1/phv/b/n/10 Prodotto\OT1/phv/m/n/10 ($[]$, Nome, Prezzo, Prime, Cos-toS-pedi-zione, De-scrizione, Peso, Quan-ti-taDisponi-bile, For-n-i-tore\TS1/cmss/m/n/10 \OT1/phv/m/n/10 Fornitore.PIVA) 
+ []
+
+(C:\Users\marca\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
+File: lstlang1.sty 2020/03/24 1.8d listings language file
+) [9 <./media/ER risolto.png>]
+<media/query1.png, id=38, 235.88126pt x 125.46875pt>
+File: media/query1.png Graphic file (type png)
+<use media/query1.png>
+Package pdftex.def Info: media/query1.png  used on input line 1055.
+(pdftex.def)             Requested size: 235.88068pt x 125.46843pt.
+<media/query2.png, id=40, 427.5975pt x 198.24063pt>
+File: media/query2.png Graphic file (type png)
+<use media/query2.png>
+Package pdftex.def Info: media/query2.png  used on input line 1078.
+(pdftex.def)             Requested size: 427.59645pt x 198.24014pt.
+ [10 <./media/query1.png> <./media/query2.png>]
+<media/query3.png, id=46, 336.75812pt x 182.6825pt>
+File: media/query3.png Graphic file (type png)
+<use media/query3.png>
+Package pdftex.def Info: media/query3.png  used on input line 1116.
+(pdftex.def)             Requested size: 336.7573pt x 182.68204pt.
+ [11 <./media/query3.png>]
+<media/query4.png, id=51, 455.7025pt x 200.75pt>
+File: media/query4.png Graphic file (type png)
+<use media/query4.png>
+Package pdftex.def Info: media/query4.png  used on input line 1156.
+(pdftex.def)             Requested size: 455.70137pt x 200.7495pt.
+ [12 <./media/query4.png>]
+<media/query5.png, id=56, 412.54124pt x 144.03813pt>
+File: media/query5.png Graphic file (type png)
+<use media/query5.png>
+Package pdftex.def Info: media/query5.png  used on input line 1195.
+(pdftex.def)             Requested size: 412.54024pt x 144.03777pt.
+ [13 <./media/query5.png>] (main.aux) ) 
 Here is how much of TeX's memory you used:
- 2377 strings out of 478659
- 40286 string characters out of 2845920
- 370232 words of memory out of 3000000
- 20462 multiletter control sequences out of 15000+600000
- 419128 words of font info for 54 fonts, out of 8000000 for 9000
+ 4800 strings out of 478659
+ 72150 string characters out of 2845920
+ 599998 words of memory out of 3000000
+ 22864 multiletter control sequences out of 15000+600000
+ 416385 words of font info for 45 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,9n,62p,425b,333s stack positions out of 5000i,500n,10000p,200000b,80000s
- <C:\Users\marca\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcss1095.pk>{C:/Users/marca/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}<C:/Users/marca/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/marca/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/marca/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/marca/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on main.pdf (11 pages, 290626 bytes).
+ 55i,9n,62p,425b,1576s stack positions out of 5000i,500n,10000p,200000b,80000s
+ <C:\Users\marca\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcss1000.pk>{C:/Users/marca/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}<C:/Users/marca/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/marca/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/marca/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/marca/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvro8a.pfb>
+Output written on main.pdf (13 pages, 438929 bytes).
 PDF statistics:
- 67 PDF objects out of 1000 (max. 8388607)
+ 85 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 36 words of extra memory for PDF output out of 10000 (max. 10000000)
 
