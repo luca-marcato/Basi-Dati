@@ -69,13 +69,10 @@ Inoltre per essere accettabile un progetto deve possedere i seguenti requisiti m
 - Almeno una gerarchia significativa
 - Un esempio di relazione per ogni tipo di cardinalità (1:N, 1:1, N:M)
 
-Domande:
+Codice:
 
-- Come posso inserire all'interno del database la cronologia del carrello di ogni utente?
-- Diagramma ER:
-  - Ha senso mettere cardinalità minima a 0 nella relazione Sede->Fornitore
+COMAND (compile):
+*g++ codice.cpp -L dependencies\lib -lpq -o codice*
 
-TODO:
-
-- Aggiungere all'Abstract il reso
-- Aggiumgere al punto 2.1 il reso
+COMAND (run):
+*./codice*
