@@ -86,7 +86,8 @@ CREATE TABLE Spedizione(
 	Codice VARCHAR(13) PRIMARY KEY, 
 	DataPartenza TIMESTAMP NOT NULL, 
 	DataArrivo TIMESTAMP NOT NULL CHECK (DataArrivo > DataPartenza), 
-	DataEffettiva TIMESTAMP
+	DataEffettiva TIMESTAMP 
+	CHECK( (DataEffettiva IS NOT NULL AND DataEffettiva > DataPartenza) OR DataEffettiva IS NULL )
 ); 
 
 CREATE TABLE Ordine(
