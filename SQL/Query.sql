@@ -19,25 +19,31 @@ FROM Fornitore JOIN
 ON Fornitore.PIVA = FornitorePrime.PIVA
 
 --3
-DROP VIEW IF EXISTS FornitoreEstero;
-CREATE VIEW FornitoreEstero as
-SELECT DISTINCT PIVA
-FROM Fornitore, Stabilimento
-WHERE Stabilimento.Fornitore = Fornitore.PIVA
-AND Stato <> 'IT';
+  DROP VIEW IF EXISTS FornitoreEstero;
+    CREATE VIEW FornitoreEstero as
+    SELECT PIVA
+    FROM Fornitore, Stabilimento
+    WHERE Stabilimento.Fornitore = Fornitore.PIVA
+    AND Stato <> 'IT';
 
-SELECT DISTINCT ProdottiAcquistati.Utente
-FROM Prodotto JOIN
-(
-    SELECT ProdottiSalvati.Prodotto, ProdottiSalvati.Utente
-    FROM Ordine, Carrello, ProdottiSalvati
-    WHERE Ordine.Carrello = Carrello.id
-    AND Ordine.Utente = Carrello.Utente
-    AND Carrello.id = ProdottiSalvati.Carrello
-    AND Carrello.Utente = ProdottiSalvati.Utente
-) as ProdottiAcquistati
-ON ProdottiAcquistati.Prodotto = Prodotto.Codice
-WHERE Prodotto.Fornitore IN (SELECT * FROM FornitoreEstero)
+    SELECT Nome, Cognome, Citta
+    FROM Utente, Indirizzo,
+    (
+        SELECT DISTINCT ProdottiAcquistati.Utente
+        FROM Prodotto JOIN
+        (
+            SELECT ProdottiSalvati.Prodotto, ProdottiSalvati.Utente
+            FROM Ordine, Carrello, ProdottiSalvati
+            WHERE Ordine.Carrello = Carrello.id
+            AND Ordine.Utente = Carrello.Utente
+            AND Carrello.id = ProdottiSalvati.Carrello
+            AND Carrello.Utente = ProdottiSalvati.Utente
+        ) as ProdottiAcquistati
+        ON ProdottiAcquistati.Prodotto = Prodotto.Codice
+        WHERE Prodotto.Fornitore IN (SELECT * FROM FornitoreEstero)
+    ) as Utenti
+    WHERE Utente.Email = Utenti.Utente
+    AND Utente.Residenza = Indirizzo.id;
 
 --4
 SELECT Nome, Quantita, ProdottiAcquistati.Ordine, ProdottiAcquistati.Utente, ProdottiAcquistati.CodiceSpedizione
