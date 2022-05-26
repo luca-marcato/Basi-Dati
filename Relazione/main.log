@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 21.12.10) (preloaded format=pdflatex 2022.1.22)  25 MAY 2022 15:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 21.12.10) (preloaded format=pdflatex 2022.1.22)  26 MAY 2022 12:38
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -389,19 +389,19 @@ Package pdftex.def Info: media/query4.png  used on input line 1156.
 <media/query5.png, id=56, 412.54124pt x 144.03813pt>
 File: media/query5.png Graphic file (type png)
 <use media/query5.png>
-Package pdftex.def Info: media/query5.png  used on input line 1195.
+Package pdftex.def Info: media/query5.png  used on input line 1199.
 (pdftex.def)             Requested size: 412.54024pt x 144.03777pt.
  [13 <./media/query5.png>] (main.aux) ) 
 Here is how much of TeX's memory you used:
- 4800 strings out of 478659
- 72150 string characters out of 2845920
- 599998 words of memory out of 3000000
- 22864 multiletter control sequences out of 15000+600000
+ 4798 strings out of 478659
+ 72134 string characters out of 2845920
+ 598998 words of memory out of 3000000
+ 22862 multiletter control sequences out of 15000+600000
  416385 words of font info for 45 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,9n,62p,425b,1576s stack positions out of 5000i,500n,10000p,200000b,80000s
  <C:\Users\marca\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcss1000.pk>{C:/Users/marca/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}<C:/Users/marca/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/marca/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/marca/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/marca/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on main.pdf (13 pages, 438929 bytes).
+Output written on main.pdf (13 pages, 439288 bytes).
 PDF statistics:
  85 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

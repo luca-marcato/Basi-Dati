@@ -1170,8 +1170,8 @@ degli utenti che hanno una spesa totale maggiore di 500 euro.
     GROUP BY Circuito, Ordine.Utente;
     
     SELECT UtenteDatoImportoTotale.Email, UtenteDatoImportoTotale.Abbonamento,
-           OC1.Circuito, UtenteDatoImportoTotale.ImportoTotale
-    FROM OrdiniPerCircuto as OC1, OrdiniPerCircuto as OC2,
+    OrdiniPerCircuto.Circuito, UtenteDatoImportoTotale.ImportoTotale
+    FROM OrdiniPerCircuto,
     (
         SELECT Utente.Email as Email, Abbonamento, SpesaUtente.ImportoTotale
         FROM Utente JOIN
@@ -1185,9 +1185,13 @@ degli utenti che hanno una spesa totale maggiore di 500 euro.
         ) as SpesaUtente
         ON Utente.Email = SpesaUtente.Email
     ) as UtenteDatoImportoTotale
-    WHERE UtenteDatoImportoTotale.Email = OC1.Utente
-    AND OC1.Utente = OC2.Utente
-    AND OC1.OrdiniEffettuati >= OC2.OrdiniEffettuati
+    WHERE UtenteDatoImportoTotale.Email = OrdiniPerCircuto.Utente
+    AND OrdiniPerCircuto.OrdiniEffettuati = 
+    (
+        SELECT MAX(OrdiniEffettuati)
+        FROM OrdiniPerCircuto
+        WHERE OrdiniPerCircuto.Utente = UtenteDatoImportoTotale.Email
+    )
 \end{lstlisting}
 
 \begin{center}
@@ -1199,12 +1203,13 @@ degli utenti che hanno una spesa totale maggiore di 500 euro.
 
 \subsection{Indici}
 
-La ricerca di un prodotto è un operazione che viene eseguita molto spesso in lettura, dato
-che vengono sia ricercati dagli utenti ma anche inseriti automaticamente tra i prodotti consigliati
-e nella home del sito.
+La ricerca di un prodotto è un operazione che viene eseguita molto spesso in lettura dato
+che la loro ricerca viene eseguita dagli utenti e anche vengono inseriti automaticamente tra i prodotti consigliati
+e nella home del sito. Quindi per diminuire il più possibile la latenza nella ricerca e nel caricamento delle pagine 
+si è deciso di indicizzare l'attributo Nome della tabella Prodotto nell'indice NomiProdotti.
 
 \begin{lstlisting}[language=SQL]
-    CREATE INDEX ProdottiNomi ON Prodotto(Nome);
+    CREATE INDEX NomiProdotti ON Prodotto(Nome);
 \end{lstlisting}
 
 \section{Codice C++}

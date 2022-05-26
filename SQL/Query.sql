@@ -74,8 +74,8 @@ FROM Ordine, CartaDiCredito
 WHERE Ordine.CartaDiCredito = CartaDiCredito.Numero
 GROUP BY Circuito, Ordine.Utente;
 
-SELECT UtenteDatoImportoTotale.Email, UtenteDatoImportoTotale.Abbonamento, OC1.Circuito, UtenteDatoImportoTotale.ImportoTotale
-FROM OrdiniPerCircuto as OC1, OrdiniPerCircuto as OC2,
+SELECT UtenteDatoImportoTotale.Email, UtenteDatoImportoTotale.Abbonamento, OrdiniPerCircuto.Circuito, UtenteDatoImportoTotale.ImportoTotale
+FROM OrdiniPerCircuto,
 (
     SELECT Utente.Email as Email, Abbonamento, SpesaUtente.ImportoTotale
     FROM Utente JOIN
@@ -89,6 +89,7 @@ FROM OrdiniPerCircuto as OC1, OrdiniPerCircuto as OC2,
     ) as SpesaUtente
     ON Utente.Email = SpesaUtente.Email
 ) as UtenteDatoImportoTotale
-WHERE UtenteDatoImportoTotale.Email = OC1.Utente
-AND OC1.Utente = OC2.Utente
-AND OC1.OrdiniEffettuati >= OC2.OrdiniEffettuati
+WHERE UtenteDatoImportoTotale.Email = OrdiniPerCircuto.Utente
+AND OrdiniPerCircuto.OrdiniEffettuati = (SELECT MAX(OrdiniEffettuati)
+                                         FROM OrdiniPerCircuto
+                                         WHERE OrdiniPerCircuto.Utente = UtenteDatoImportoTotale.Email)
