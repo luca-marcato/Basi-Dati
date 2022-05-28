@@ -27,9 +27,11 @@ int main(int argc, char **argv) {
 	
 	char conninfo[250];
 	
+	//Stringa per la conessione
 	sprintf(conninfo, "user=%s password=%s dbname=%s hostaddr=%s port=%d",
 			PG_USER, PG_PASS, PG_DB, PG_HOST, PG_PORT);
 	
+	//Connessione
 	PGconn *conn = PQconnectdb(conninfo);
 	
 	if(PQstatus(conn) != CONNECTION_OK) {
@@ -219,12 +221,12 @@ int main(int argc, char **argv) {
 	const int fQuery_4 = PQnfields(res);
 	const int tQuery_4 = PQntuples(res);
 	for(int i = 0; i < fQuery_4; i++) {
-		printElement(PQfname(res, i), 20);
+		printElement(PQfname(res, i), 25);
 	}
 	std::cout<<std::endl;
 	for(int i = 0; i < tQuery_4; i++) {
 		for(int j = 0; j < fQuery_4; j++) {
-			printElement(PQgetvalue(res, i, j), 20);
+			printElement(PQgetvalue(res, i, j), 25);
 		}
 		std::cout<<std::endl;
 	}

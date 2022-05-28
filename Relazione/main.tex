@@ -1216,8 +1216,67 @@ si è deciso di indicizzare l'attributo Nome della tabella Prodotto nell'indice 
 
 \subsection{Descrizione dell'utilizzo del codice}
 
-\dots
+Il codice C++ per l’esecuzione delle query consiste in un unico file .cpp compilabile con il comando
+\begin{lstlisting}
+    g++ main.cpp -L dependencies\lib -lpq -o main
+\end{lstlisting}
+A questo punto il comando necessario per l'esecuzione del programma è \textbf{./main}. \\
+Prima che il programma esegui le query si cerca di stabilire la connessione con il database attraverso le credenziali e la password di un utente registrato al sistema
+di gestione basi di dati e solo nel caso la connessione vada a buon fine si procederà con la scrittura e l'esecuzione delle query riportate nel punto 5
+per l'interrogazione al database, i risultati verranno stampati a video in formato tabulare. \\
+La query numero 4 richiederà l’inserimento di alcuni parametri da parte dell’utente per la ricerca:
+\begin{itemize}
+    \itemsep0em 
+    \item Via
+    \item Numero civico
+    \item CAP
+    \item Città
+\end{itemize}
+Si fa notare che qualora i parametri non vengano inseriti come riportato dal programma nel momento dell'esecuzione, la query potrebbe non restituire i risultati attesi.
 
 \subsection{Documentazione codice}
+Funzioni e pezzi di codice interessanti utilizzati dal programma:\\
+\begin{lstlisting}[language=C++]
+    void checkResults(PGresult* res, const PGconn* conn)
+\end{lstlisting}
+Controlla che il risultato della query contenga la flag di validità altrimenti stamperà a video il messaggio di errore.\\
+
+\begin{lstlisting}[language=C++]
+	
+    char conninfo[250];
+	
+    sprintf(conninfo, "user=%s password=%s dbname=%s hostaddr=%s port=%d",
+    		    PG_USER, PG_PASS, PG_DB, PG_HOST, PG_PORT);
+	
+    PGconn *conn = PQconnectdb(conninfo);
+	
+    if(PQstatus(conn) != CONNECTION_OK) {
+        cout<<"Errore di connessione"<<std::endl<<PQerrorMessage(conn);
+        PQfinish(conn);
+    }
+\end{lstlisting}
+Cerca di stabilire la connessione al database inviando verso un determinato server (host:porta) le credenziali di accesso al database specificato.
+Se la connessione non va a buon fine verrà mostrato un messaggio di errore altrimenti la computazione continuerà. \\
+
+\begin{lstlisting}[language=C++]
+    res = PQexec(conn, query_1.c_str());
+\end{lstlisting}
+Prende come paramentri di input la connessione al database e la query e riceve il risultato associato. \\
+ 
+\begin{lstlisting}[language=C++]
+    template<typename T> void printElement(T t, const int& width)
+\end{lstlisting}
+Template di funzione che permette di tabulizzare i risultati di una query utlizzando la libreria 'iomanip'. \\
+
+\begin{lstlisting}[language=C++]
+
+    const char* params[] = {via.c_str(), ncv.c_str(), cap.c_str(), citta.c_str()};
+
+    res = PQexecParams(conn, query_4.c_str(), 4, NULL, params, NULL, NULL, 0);
+\end{lstlisting}
+Questa parte del programma si occupa dell'inserimento di dati da parte dell'utente via tastiera.
+La funzione riceve in input la connessione al database, la query e i dati necessari per la processazione dei parametri
+ovvero il numero totale e il loro valore.
+\end{document}
 
 \end{document}
